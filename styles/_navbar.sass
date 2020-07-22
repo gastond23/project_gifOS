@@ -2,10 +2,44 @@ nav
     display: flex
     justify-content: space-between
 
-#menu
-    margin-top: 1em
+.menu-burguer
+    margin-top: 2em
     margin-right: 1em
 
-#logo
+.logo
     margin-top: 0.5em
     margin-left: 1em
+
+.menu
+    position: absolute
+    z-index: 100
+    display: none //flex en JavaScript
+    flex-direction: column
+    width: 100%
+    height: 100vh
+    opacity: 90%
+    margin-top: 5em
+    padding-top: 2em
+    background-color: $color-principal
+    li
+        list-style: none
+        text-align: center
+        width: 100%
+        height: 2em
+        a
+            text-decoration: none
+            font-family: $font-alterna
+            color: #ffffff
+            font-size: 15px
+            font-weight: bold
+            line-height: 30px
+            display: block
+        span
+            border: 1px solid #ffffff
+            height: 0
+            width: 2.5em
+            display: block
+            margin-left: auto
+            margin-right: auto
+            margin-top: 1em
+            opacity: 0.5
