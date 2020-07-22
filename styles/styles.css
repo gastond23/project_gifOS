@@ -15,13 +15,12 @@ nav {
           justify-content: space-between;
 }
 
-nav #menu {
+#menu {
   margin-top: 1em;
   margin-right: 1em;
 }
 
-nav #logo {
+#logo {
   margin-top: 0.5em;
   margin-left: 1em;
-  font-family: "Roboto", sans-serif;
 }
