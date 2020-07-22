@@ -129,9 +129,27 @@ header picture form input {
   padding-left: 1em;
 }
 
+header picture form input:focus {
+  outline: none;
+  outline-width: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 header picture form button {
   display: block;
   border: none;
   background: none;
   margin-top: -1.2em;
+}
+
+header picture form button:focus {
+  outline: none;
+  outline-width: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+header picture form button:hover {
+  cursor: pointer;
 }
