@@ -70,7 +70,7 @@ nav {
 }
 
 /** HEADER **/
-picture {
+header picture {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,23 +78,43 @@ picture {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 60%;
+  width: 100%;
   margin: auto;
   margin-top: 1em;
 }
 
-picture h1 {
+header picture h1 {
   font-family: "Montserrat", sans-serif;
   color: #572EE5;
   font-size: 25px;
   text-align: center;
   line-height: 33px;
+  width: 60%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-picture h1 span {
+header picture h1 span {
   color: #50E3C2;
 }
 
-picture img {
-  margin-top: 1em;
+header picture img {
+  margin-top: 1.5em;
+}
+
+header picture input {
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #000000;
+  text-align: left;
+  width: 80%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 1em;
+  padding-right: 1em;
 }
