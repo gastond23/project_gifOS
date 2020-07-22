@@ -103,18 +103,35 @@ header picture img {
   margin-top: 1.5em;
 }
 
-header picture input {
+header picture form {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 85%;
   border: 1px solid #572EE5;
   border-radius: 27px;
-  height: 50px;
+}
+
+header picture form input {
+  border: none;
+  width: 80%;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #000000;
   text-align: left;
-  width: 80%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  height: 50px;
+  background: none;
   padding-left: 1em;
-  padding-right: 1em;
+}
+
+header picture form button {
+  display: block;
+  border: none;
+  background: none;
+  margin-top: -1.2em;
 }
