@@ -208,7 +208,7 @@ header .trending .container-links a {
 main {
   background: #F3F5F8;
   width: 100%;
-  height: 40vh;
+  height: 60vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,4 +237,17 @@ main .trending-gifos p {
   text-align: center;
   line-height: 23px;
   margin-top: 1em;
+}
+
+main .trending-gifos .container-carrousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .trending-gifos .container-carrousel img {
+  margin: 0.1em;
 }
