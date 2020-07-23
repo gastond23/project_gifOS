@@ -1,5 +1,5 @@
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
-var xhr = $.get(`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=5&rating=g`);
+var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=5&rating=g`);
 xhr.done(function (data) { carrouselGif(data); });
 
 let carrouselContenedor = document.getElementById("container_gif");
