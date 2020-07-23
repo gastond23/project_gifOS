@@ -1,5 +1,5 @@
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
-var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=5&rating=g`);
+var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=6&rating=g`);
 xhr.done(function (data) { carrouselGif(data); });
 
 let carrouselContenedor = document.getElementById("container_gif");
@@ -10,7 +10,7 @@ function carrouselGif(data) {
     for (let i = 0; i < arrayGif.length; i++) {
         let gifTrendings = arrayGif[i];
         console.log(gifTrendings);
-        gifSlider += `<img src="${gifTrendings.images.fixed_height.url}" alt="${gifTrendings.title}">`;
+        gifSlider += `<li><img src="${gifTrendings.images.fixed_width.url}" alt="${gifTrendings.title}"></li>`;
     }
     carrouselContenedor.innerHTML = gifSlider;
 }
