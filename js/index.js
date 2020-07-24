@@ -14,3 +14,22 @@ function carrouselGif(data) {
     }
     carrouselContenedor.innerHTML = gifSlider;
 }
+
+let menuBurguer = document.getElementById("menu_ham");
+let menuValor = true;
+menuBurguer.addEventListener("click", slideMenuHaburguesa);
+
+function slideMenuHaburguesa() {
+    let menu = document.getElementById("menu");
+    if (menuValor == true) {
+        menuBurguer.src = "assets/close.svg";
+        menu.style.display = "flex";
+        menu.style.marginTop = "5em"
+        menuValor = false;
+    } else {
+        menuValor = true;
+        menuBurguer.src = "assets/burger.svg";
+        menu.style.marginTop = "-135em"
+        menu.style.display = "none";
+    }
+}

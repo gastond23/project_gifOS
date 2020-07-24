@@ -1,6 +1,8 @@
 nav
     display: flex
     justify-content: space-between
+    label
+        padding: 1em
 
 .menu-burguer
     margin-top: 2em
@@ -11,16 +13,18 @@ nav
     margin-left: 1em
 
 .menu
+    display: none //flex en JavaScript
     position: absolute
     z-index: 100
-    display: none //flex en JavaScript
     flex-direction: column
     width: 100%
-    height: 100vh
+    height: 135vh
+    overflow: hidden
     opacity: 90%
-    margin-top: 5em
+    margin-top: -135em
     padding-top: 2em
     background-color: $color-principal
+
     li
         list-style: none
         text-align: center
