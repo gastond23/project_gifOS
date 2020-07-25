@@ -45,3 +45,21 @@ function Year() {
     let n = d.getFullYear();
     document.getElementById("copyright").innerHTML = "&copy; " + n + " All Rights Reserved.";
 }
+
+let search = document.getElementById("buscador");
+let lupa = document.getElementById("lupa");
+
+search.addEventListener("keyup", busqueda);
+//lupa.addEventListener("click", busquedaGifs);
+
+function busqueda() {
+    let buscar = search.value;
+    let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
+    var buscando = $.get(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`);
+    buscando.done(function (data) { getData(data); });
+}
+
+function getData(data) {
+    let datoBusqueda = data.data;
+
+}  
