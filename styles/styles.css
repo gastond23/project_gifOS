@@ -3,6 +3,12 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 /** NAVBAR **/
@@ -31,7 +37,7 @@ nav label {
 
 .menu {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -44,6 +50,7 @@ nav label {
   margin-top: -135em;
   padding-top: 2em;
   background-color: #572EE5;
+  overflow: hidden;
 }
 
 .menu li {

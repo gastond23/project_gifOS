@@ -26,10 +26,12 @@ function slideMenuHaburguesa() {
         menu.style.display = "flex";
         menu.style.marginTop = "5em"
         menuValor = false;
+        document.getElementById("body").classList.add("no-scroll");
     } else {
         menuValor = true;
         menuBurguer.src = "assets/burger.svg";
         menu.style.marginTop = "-135em"
         menu.style.display = "none";
+        document.getElementById("body").classList.remove("no-scroll");
     }
 }
