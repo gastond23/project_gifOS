@@ -90,6 +90,9 @@ header picture {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   margin: auto;
   margin-top: 1em;
@@ -115,7 +118,13 @@ header picture img {
   margin-top: 1.5em;
 }
 
-header picture form {
+header picture .buscador-container {
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  width: 85%;
+}
+
+header picture .buscador-container form {
   -ms-flex-item-align: center;
       align-self: center;
   display: -webkit-box;
@@ -124,12 +133,9 @@ header picture form {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 85%;
-  border: 1px solid #572EE5;
-  border-radius: 27px;
 }
 
-header picture form input {
+header picture .buscador-container form input {
   border: none;
   width: 80%;
   font-family: "Roboto", sans-serif;
@@ -141,29 +147,45 @@ header picture form input {
   padding-left: 1em;
 }
 
-header picture form input:focus {
+header picture .buscador-container form input:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture form button {
+header picture .buscador-container form button {
   display: block;
   border: none;
   background: none;
   margin-top: -1.2em;
 }
 
-header picture form button:focus {
+header picture .buscador-container form button:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture form button:hover {
+header picture .buscador-container form button:hover {
   cursor: pointer;
+}
+
+header picture .buscador-container ul {
+  list-style: none;
+}
+
+header picture .buscador-container ul li {
+  font-family: "Roboto", sans-serif;
+  display: block;
+  font-size: 16px;
+  color: #9CAFC3;
+}
+
+header picture .buscador-container ul li button {
+  border: none;
+  background: none;
 }
 
 header .trending {

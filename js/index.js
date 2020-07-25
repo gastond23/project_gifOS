@@ -51,15 +51,23 @@ let lupa = document.getElementById("lupa");
 
 search.addEventListener("keyup", busqueda);
 //lupa.addEventListener("click", busquedaGifs);
+let listadoSearch = document.getElementById("lista_search");
 
 function busqueda() {
     let buscar = search.value;
-    let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
-    var buscando = $.get(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`);
-    buscando.done(function (data) { getData(data); });
+    if (buscar.length > 0) {
+        let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
+        var buscando = $.get(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`);
+        buscando.done(function (data) { getData(data); });
+    } else {
+        listadoSearch.innerHTML = "";
+    }
 }
 
 function getData(data) {
     let datoBusqueda = data.data;
-
+    listadoSearch.innerHTML = `<li><button type="submit"><img src="assets/icon-search.svg" alt="Busqueda"></button>${datoBusqueda[0].name}</li>
+    <li><button type="submit"><img src="assets/icon-search.svg" alt="Busqueda"></button>${datoBusqueda[1].name}</li>
+    <li><button type="submit"><img src="assets/icon-search.svg" alt="Busqueda"></button>${datoBusqueda[2].name}</li>
+    <li><button type="submit"><img src="assets/icon-search.svg" alt="Busqueda"></button>${datoBusqueda[3].name}</li>`;
 }  
