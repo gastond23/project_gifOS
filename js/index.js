@@ -1,3 +1,4 @@
+
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
 var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=6&rating=g`);
 xhr.done(function (data) { carrouselGif(data); });
@@ -14,6 +15,7 @@ function carrouselGif(data) {
     }
     carrouselContenedor.innerHTML = gifSlider;
 }
+
 
 let menuBurguer = document.getElementById("menu_ham");
 let menuValor = true;
@@ -34,4 +36,12 @@ function slideMenuHaburguesa() {
         menu.style.display = "none";
         document.getElementById("body").classList.remove("no-scroll");
     }
+}
+
+Year();
+
+function Year() {
+    let d = new Date();
+    let n = d.getFullYear();
+    document.getElementById("copyright").innerHTML = "&copy; " + n + " All Rights Reserved.";
 }
