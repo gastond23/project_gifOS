@@ -77,12 +77,26 @@ function busqueda() {
     }
 }
 
+
+
 //Esta funcion obtiene los valores buscados en GIPHY y los muestra en el DOM, agregando los <li> en el <ul> del buscador
 function getData(data) {
     listadoSearch.classList.add("menu-activo");
     let datoBusqueda = data.data;
-    listadoSearch.innerHTML = `<li><svg><use xlink:href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
-    <li><svg><use xlink:href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[1].name}</li>
-    <li><svg><use xlink:href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[2].name}</li>
-    <li><svg><use xlink:href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[3].name}</li>`;
-}  
+    listadoSearch.innerHTML = `<li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
+    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[1].name}</li>
+    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[2].name}</li>
+    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[3].name}</li>`;
+}
+
+//Capturar el evento click de la lista creada con sugerencias para el autocompletado
+document.getElementById("lista_search").addEventListener("click", function (e) {
+    let items = document.getElementsByClassName("item");
+    for (let i = 0; i < items.length; i++) {
+        let sugerencia = items[i];
+        if (sugerencia == e.target) {
+            console.log(sugerencia.textContent);
+            search.value = sugerencia.textContent;
+        }
+    }
+})
