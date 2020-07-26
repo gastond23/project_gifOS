@@ -115,15 +115,22 @@ function getBusquedaGiphy() {
 }
 
 function muestraBusqueda(data) {
-    debugger;
+    search.value = "";
     let valorBusqueda = data.data;
     let sectorBusqueda = document.getElementById("busqueda_section");
     sectorBusqueda.classList.add("busqueda-section");
     let listaGifs = "";
+    let btnVerMas = document.createElement("button");
+    btnVerMas.classList.add("btn-vermas");
+    btnVerMas.innerText = "VER MAS";
     for (let i = 0; i < valorBusqueda.length; i++) {
         let gifElement = valorBusqueda[i];
         listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
-        sectorBusqueda.innerHTML = listaGifs;
-        console.log(sectorBusqueda);
+        if (i < (i * 12)) {
+            sectorBusqueda.innerHTML = listaGifs;
+            sectorBusqueda.appendChild(btnVerMas);
+        }
     }
+    //sectorBusqueda.innerHTML = listaGifs;
+    console.log(sectorBusqueda);
 }
