@@ -28,6 +28,7 @@ nav label {
 .menu-burguer {
   margin-top: 2em;
   margin-right: 1em;
+  cursor: pointer;
 }
 
 .logo {
@@ -134,14 +135,14 @@ header picture .buscador-container {
           align-items: center;
 }
 
-header picture .buscador-container form {
+header picture .buscador-container .contenedor-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
-header picture .buscador-container form input {
+header picture .buscador-container .contenedor-search input {
   border: none;
   width: 90%;
   font-family: "Roboto", sans-serif;
@@ -153,28 +154,28 @@ header picture .buscador-container form input {
   padding-left: 1em;
 }
 
-header picture .buscador-container form input:focus {
+header picture .buscador-container .contenedor-search input:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture .buscador-container form button {
+header picture .buscador-container .contenedor-search button {
   display: block;
   border: none;
   background: none;
   margin-top: -1.2em;
 }
 
-header picture .buscador-container form button:focus {
+header picture .buscador-container .contenedor-search button:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture .buscador-container form button:hover {
+header picture .buscador-container .contenedor-search button:hover {
   cursor: pointer;
 }
 
@@ -437,4 +438,15 @@ footer p {
   font-size: 15px;
   color: #000000;
   letter-spacing: 0;
+}
+
+/** SECTION BUSQUEDA **/
+.busqueda-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
