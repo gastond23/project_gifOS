@@ -110,7 +110,7 @@ document.getElementById("lupa").addEventListener("click", () => {
 });
 
 function getBusquedaGiphy() {
-    var busquedaGifs = $.get(`http://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}`);
+    var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}`);
     busquedaGifs.done(function (data) { muestraBusqueda(data); });
 }
 
