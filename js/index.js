@@ -91,12 +91,5 @@ function getData(data) {
 
 //Capturar el evento click de la lista creada con sugerencias para el autocompletado
 document.getElementById("lista_search").addEventListener("click", function (e) {
-    let items = document.getElementsByClassName("item");
-    for (let i = 0; i < items.length; i++) {
-        let sugerencia = items[i];
-        if (sugerencia == e.target) {
-            console.log(sugerencia.textContent);
-            search.value = sugerencia.textContent;
-        }
-    }
+    search.value = e.target.textContent;
 })
