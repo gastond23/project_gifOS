@@ -269,6 +269,13 @@ header .trending .container-links a {
   margin-left: 0.5em;
 }
 
+.bar {
+  height: 5px;
+  background-color: #572EE5;
+  width: 100%;
+  display: block;
+}
+
 /** MAIN **/
 main {
   background: #F3F5F8;

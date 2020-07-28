@@ -6,6 +6,11 @@ xhr.done(function (data) { carrouselGif(data); });
 //Tomar desde el DOM el contenedor para los trendings Gifs
 let carrouselContenedor = document.getElementById("container_gif");
 
+let btnVerMas = document.createElement("button");
+btnVerMas.id = "btn_vermas";
+let sectorBusqueda = document.getElementById("busqueda_section");
+let valorBusqueda = "";
+
 //Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
 function carrouselGif(data) {
     let arrayGif = data.data;
@@ -117,22 +122,41 @@ function getBusquedaGiphy() {
 }
 
 function muestraBusqueda(data) {
+    debugger;
     search.value = "";
-    let valorBusqueda = data.data;
-    let sectorBusqueda = document.getElementById("busqueda_section");
+    valorBusqueda = data.data;
     sectorBusqueda.classList.add("busqueda-section");
     let listaGifs = "";
-    let btnVerMas = document.createElement("button");
     btnVerMas.classList.add("btn-vermas");
     btnVerMas.innerText = "VER MAS";
-    for (let i = 0; i < valorBusqueda.length; i++) {
-        let gifElement = valorBusqueda[i];
-        listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
-        if (i < (i * 12)) {
+    console.log(valorBusqueda);
+    if (valorBusqueda.length > 12) {
+        for (let i = 0; i < 12; i++) {
+            let gifElement = valorBusqueda[i];
+            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
             sectorBusqueda.innerHTML = listaGifs;
             sectorBusqueda.appendChild(btnVerMas);
         }
+    } else {
+        for (let i = 0; i < valorBusqueda.length; i++) {
+            let gifElement = valorBusqueda[i];
+            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
+            sectorBusqueda.innerHTML = listaGifs;
+        }
     }
-    //sectorBusqueda.innerHTML = listaGifs;
     console.log(sectorBusqueda);
+}
+
+btnVerMas.addEventListener("click", verMas);
+
+function verMas() {
+    let parentSection = btnVerMas.parentNode;
+    let listaGifs = "";
+    if (valorBusqueda.length > 24) {
+        for (let i = 12; i < valorBusqueda.length; i++) {
+            let gifElement = valorBusqueda[i];
+            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
+            sectorBusqueda.innerHTML += listaGifs;
+        }
+    }
 }
