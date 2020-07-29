@@ -339,6 +339,7 @@ main .trending-gifos .container-carrousel ul {
 
 main .trending-gifos .container-carrousel ul li {
   list-style: none;
+  height: 10em;
   width: 100%;
   margin: 1em;
   display: block;
@@ -349,6 +350,9 @@ main .trending-gifos .container-carrousel ul li {
 main .trending-gifos .container-carrousel ul li img {
   display: block;
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @-webkit-keyframes slider {
@@ -440,6 +444,10 @@ footer .icon-container {
       justify-content: space-around;
 }
 
+footer .icon-container a:hover img {
+  fill: #572EE5;
+}
+
 footer p {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -449,11 +457,59 @@ footer p {
 
 /** SECTION BUSQUEDA **/
 .busqueda-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  padding-bottom: 1em;
+}
+
+.busqueda-section .gif-card {
+  display: block;
+  margin: 1em;
+  height: 200px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.busqueda-section .gif-card .gif-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.busqueda-section .btn-vermas {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #572EE5;
+  letter-spacing: 0;
+  text-align: center;
+  background-color: #ffffff;
+  height: 50px;
+  width: 127px;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.busqueda-section .btn-vermas:focus {
+  outline: none;
+  outline-width: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.busqueda-section .btn-vermas:hover {
+  background-color: #572EE5;
+  color: #ffffff;
 }

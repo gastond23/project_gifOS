@@ -1,3 +1,41 @@
 .busqueda-section
-    display: flex
-    flex-direction: column
+    width: 100%
+    background-color: #ffffff
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-auto-rows: auto
+    padding-bottom: 1em
+    .gif-card
+        display: block
+        margin: 1em
+        height: 200px
+        width: 250px
+        margin-left: auto
+        margin-right: auto
+        .gif-img
+            height: 100%
+            width: 100%
+            object-fit: cover
+    .btn-vermas
+        grid-column-start: 1
+        grid-column-end: 3
+        font-family: $font-alterna
+        font-size: 13px
+        color: $color-principal
+        letter-spacing: 0
+        text-align: center
+        background-color: #ffffff
+        height: 50px
+        width: 127px
+        border: 1px solid $color-principal
+        border-radius: 25px
+        border-radius: 25px
+        cursor: pointer
+        margin: auto
+    .btn-vermas:focus
+        outline: none
+        outline-width: 0
+        box-shadow: none
+    .btn-vermas:hover
+        background-color: $color-principal
+        color: #ffffff

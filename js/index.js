@@ -1,8 +1,3 @@
-//Fetch en JQuery para trending gifs desde GIPHY
-let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
-var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=6&rating=g`);
-xhr.done(function (data) { carrouselGif(data); });
-
 //Tomar desde el DOM el contenedor para los trendings Gifs
 let carrouselContenedor = document.getElementById("container_gif");
 
@@ -10,6 +5,14 @@ let btnVerMas = document.createElement("button");
 btnVerMas.id = "btn_vermas";
 let sectorBusqueda = document.getElementById("busqueda_section");
 let valorBusqueda = "";
+let limiteBusqueda = 12;
+let offset = 0;
+let ultimaBusqueda;
+
+//Fetch en JQuery para trending gifs desde GIPHY
+let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
+var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limiteBusqueda}&rating=g`);
+xhr.done(function (data) { carrouselGif(data); });
 
 //Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
 function carrouselGif(data) {
@@ -31,7 +34,6 @@ menuBurguer.addEventListener("click", slideMenuHaburguesa);
 
 //Funcion para activar y desactivar la muestra del menu hamburguesa
 function slideMenuHaburguesa() {
-    let menu = document.getElementById("menu");
     if (menuValor == true) {
         menuBurguer.src = "assets/close.svg";
         menuValor = false;
@@ -85,6 +87,8 @@ function busqueda() {
 
 //Esta funcion obtiene los valores buscados en GIPHY y los muestra en el DOM, agregando los <li> en el <ul> del buscador
 function getData(data) {
+    let imgLupa = document.getElementById("lupa_input");
+    imgLupa.src = "assets/close.svg";
     listadoSearch.classList.add("menu-activo");
     let datoBusqueda = data.data;
     listadoSearch.innerHTML = `<li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
@@ -102,36 +106,41 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
 
 //Llamado de funcion desde un click en lupa o enter
 
-document.getElementById("buscador").addEventListener("keypress", function (e) {
+document.getElementById("buscador").addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
-        listadoSearch.innerHTML = "";
-        listadoSearch.classList.remove("menu-activo");
         getBusquedaGiphy();
     }
 })
 
 document.getElementById("lupa").addEventListener("click", () => {
-    listadoSearch.innerHTML = "";
-    listadoSearch.classList.remove("menu-activo");
     getBusquedaGiphy();
 });
 
-function getBusquedaGiphy() {
-    var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}`);
-    busquedaGifs.done(function (data) { muestraBusqueda(data); });
+function getBusquedaGiphy(ultimaBusqueda) {
+    if (ultimaBusqueda == undefined) {
+        offset = 0;
+        var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`);
+        busquedaGifs.done(function (data) { muestraBusqueda(data); });
+    } else {
+        var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${ultimaBusqueda}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`);
+        busquedaGifs.done(function (data) { recargaBusqueda(data); });
+    }
 }
 
 function muestraBusqueda(data) {
-    debugger;
+    listadoSearch.innerHTML = "";
+    listadoSearch.classList.remove("menu-activo");
+    ultimaBusqueda = search.value;
     search.value = "";
+    console.log(data.data);
     valorBusqueda = data.data;
     sectorBusqueda.classList.add("busqueda-section");
     let listaGifs = "";
     btnVerMas.classList.add("btn-vermas");
     btnVerMas.innerText = "VER MAS";
-    console.log(valorBusqueda);
-    if (valorBusqueda.length > 12) {
-        for (let i = 0; i < 12; i++) {
+    btnVerMas.remove();
+    if (valorBusqueda.length <= limiteBusqueda) {
+        for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
             listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
             sectorBusqueda.innerHTML = listaGifs;
@@ -150,13 +159,36 @@ function muestraBusqueda(data) {
 btnVerMas.addEventListener("click", verMas);
 
 function verMas() {
-    let parentSection = btnVerMas.parentNode;
-    let listaGifs = "";
-    if (valorBusqueda.length > 24) {
-        for (let i = 12; i < valorBusqueda.length; i++) {
+    offset++;
+    offset = offset + limiteBusqueda;
+    console.log(offset);
+    getBusquedaGiphy(ultimaBusqueda);
+}
+
+function recargaBusqueda(data) {
+    sectorBusqueda.removeChild(btnVerMas);
+    valorBusqueda = data.data;
+    if (valorBusqueda.length <= limiteBusqueda) {
+        for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
-            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
-            sectorBusqueda.innerHTML += listaGifs;
+            let newGifCard = document.createElement("div");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
+            imgGif.src = gifElement.images.original.url;
+            newGifCard.appendChild(imgGif);
+            sectorBusqueda.appendChild(newGifCard);
+        }
+        sectorBusqueda.appendChild(btnVerMas);
+    } else {
+        for (let i = 0; i < valorBusqueda.length; i++) {
+            let gifElement = valorBusqueda[i];
+            let newGifCard = document.createElement("div");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.src = gifElement.images.original.url;
+            newGifCard.appendChild(imgGif);
+            sectorBusqueda.appendChild(newGifCard);
         }
     }
 }
