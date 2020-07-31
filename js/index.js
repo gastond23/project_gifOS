@@ -158,7 +158,7 @@ function muestraBusqueda(data) {
     console.log(data.data);
     valorBusqueda = data.data;
     sectorBusqueda.classList.add("busqueda-section");
-    let listaGifs = "";
+    sectorBusqueda.innerHTML = "";
     btnVerMas.classList.add("btn-vermas");
     btnVerMas.innerText = "VER MAS";
     btnVerMas.remove();
