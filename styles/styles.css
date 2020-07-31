@@ -220,7 +220,7 @@ header picture .buscador-container .menu-activo {
 }
 
 header .trending {
-  width: 100%;
+  width: 80%;
   height: 18vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -232,6 +232,7 @@ header .trending {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: auto;
 }
 
 header .trending h2 {
@@ -244,9 +245,7 @@ header .trending h2 {
   margin-top: 1.5em;
 }
 
-header .trending .container-links {
-  margin-top: 0.5em;
-  width: 50%;
+header .trending .container-li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -255,18 +254,19 @@ header .trending .container-links {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  list-style: none;
+  width: 60%;
+  margin: auto;
 }
 
-header .trending .container-links a {
-  text-decoration: none;
+header .trending .container-li li {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #572EE5;
-  text-align: center;
-  line-height: 25px;
   display: block;
-  margin-left: 0.5em;
+  margin: 0.5em;
+  cursor: pointer;
 }
 
 .bar {
@@ -481,6 +481,16 @@ footer p {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.busqueda-section .gif-card .gif-img:hover {
+  z-index: -10;
+  opacity: 0.6;
+}
+
+.busqueda-section .gif-card:hover {
+  background-color: #572EE5;
+  z-index: 10;
 }
 
 .busqueda-section .btn-vermas {

@@ -1,6 +1,6 @@
 //Tomar desde el DOM el contenedor para los trendings Gifs
 let carrouselContenedor = document.getElementById("container_gif");
-
+let imgLupa = document.getElementById("lupa_input");
 let btnVerMas = document.createElement("button");
 btnVerMas.id = "btn_vermas";
 let sectorBusqueda = document.getElementById("busqueda_section");
@@ -82,8 +82,14 @@ function busqueda() {
     let buscar = search.value;
     //Si en el input no hay nada escrito deja vacio el <ul> y quita la clase menu-activo para no modificar el DOM, si no realiza la busqueda
     if (buscar.length > 0) {
-        var buscando = $.get(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`);
-        buscando.done(function (data) { getData(data); });
+        return fetch(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`)
+            .then(response => response.json())
+            .then(data => {
+                getData(data);
+            })
+            .catch(err => {
+                console.error('fetch failed', err);
+            })
     } else {
         listadoSearch.innerHTML = "";
         listadoSearch.classList.remove("menu-activo");
@@ -92,7 +98,6 @@ function busqueda() {
 
 //Esta funcion obtiene los valores buscados en GIPHY y los muestra en el DOM, agregando los <li> en el <ul> del buscador
 function getData(data) {
-    let imgLupa = document.getElementById("lupa_input");
     imgLupa.src = "assets/close.svg";
     listadoSearch.classList.add("menu-activo");
     let datoBusqueda = data.data;
@@ -122,13 +127,26 @@ document.getElementById("lupa").addEventListener("click", () => {
 });
 
 function getBusquedaGiphy(ultimaBusqueda) {
+    imgLupa.src = "assets/icon-search.svg";
     if (ultimaBusqueda == undefined) {
         offset = 0;
-        var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`);
-        busquedaGifs.done(function (data) { muestraBusqueda(data); });
+        return fetch(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`)
+            .then(response => response.json())
+            .then(data => {
+                muestraBusqueda(data);
+            })
+            .catch(err => {
+                console.error('fetch failed', err);
+            })
     } else {
-        var busquedaGifs = $.get(`https://api.giphy.com/v1/gifs/search?q=${ultimaBusqueda}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`);
-        busquedaGifs.done(function (data) { recargaBusqueda(data); });
+        return fetch(`https://api.giphy.com/v1/gifs/search?q=${ultimaBusqueda}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`)
+            .then(response => response.json())
+            .then(data => {
+                recargaBusqueda(data);
+            })
+            .catch(err => {
+                console.error('fetch failed', err);
+            })
     }
 }
 
@@ -147,15 +165,25 @@ function muestraBusqueda(data) {
     if (valorBusqueda.length <= limiteBusqueda) {
         for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
-            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
-            sectorBusqueda.innerHTML = listaGifs;
+            let newGifCard = document.createElement("div");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
+            imgGif.src = gifElement.images.original.url;
+            newGifCard.appendChild(imgGif);
+            sectorBusqueda.appendChild(newGifCard);
             sectorBusqueda.appendChild(btnVerMas);
         }
     } else {
         for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
-            listaGifs += `<div class="gif-card"><img class="gif-img" src="${gifElement.images.original.url}"></div>`;
-            sectorBusqueda.innerHTML = listaGifs;
+            let newGifCard = document.createElement("div");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
+            imgGif.src = gifElement.images.original.url;
+            newGifCard.appendChild(imgGif);
+            sectorBusqueda.appendChild(newGifCard);
         }
     }
     console.log(sectorBusqueda);
@@ -199,4 +227,29 @@ function recargaBusqueda(data) {
 }
 
 
+function trendingsSug(url) {
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            muestraTrendings(data);
+        })
+        .catch(err => {
+            console.error('fetch failed', err);
+        })
+}
 
+trendingsSug(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}&limit=5&rating=g`);
+
+function muestraTrendings(data) {
+    debugger;
+    let trendings = data.data;
+    let listaTrending = document.getElementById("trendings_sug");
+    listaTrending.classList.add("container-li");
+    for (let i = 0; i < 5; i++) {
+        let nuevoLiTrending = document.createElement("li");
+        let itemTrending = trendings[i];
+        listaTrending.appendChild(nuevoLiTrending);
+        nuevoLiTrending.innerHTML = itemTrending;
+    }
+    console.log(listaTrending);
+}
