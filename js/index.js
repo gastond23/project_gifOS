@@ -160,37 +160,59 @@ function muestraBusqueda(data) {
     search.value = "";
     console.log(data.data);
     valorBusqueda = data.data;
-    let tituloBusqueda = document.createElement("h2");
-    tituloBusqueda.classList.add("title-search")
-    tituloBusqueda.innerText = ultimaBusqueda;
-    sectorBusqueda.classList.add("busqueda-section");
-    sectorBusqueda.innerHTML = "";
-    btnVerMas.classList.add("btn-vermas");
-    btnVerMas.innerText = "VER MAS";
-    btnVerMas.remove();
-    sectorBusqueda.appendChild(tituloBusqueda);
-    if (valorBusqueda.length <= limiteBusqueda) {
-        for (let i = 0; i < valorBusqueda.length; i++) {
-            let gifElement = valorBusqueda[i];
-            let newGifCard = document.createElement("div");
-            newGifCard.classList.add("gif-card");
-            let imgGif = document.createElement("img");
-            imgGif.classList.add("gif-img");
-            imgGif.src = gifElement.images.original.url;
-            newGifCard.appendChild(imgGif);
-            sectorBusqueda.appendChild(newGifCard);
-            sectorBusqueda.appendChild(btnVerMas);
-        }
+    if (valorBusqueda.length == 0) {
+        displayBusquedaError();
     } else {
-        for (let i = 0; i < valorBusqueda.length; i++) {
-            let gifElement = valorBusqueda[i];
-            let newGifCard = document.createElement("div");
-            newGifCard.classList.add("gif-card");
-            let imgGif = document.createElement("img");
-            imgGif.classList.add("gif-img");
-            imgGif.src = gifElement.images.original.url;
-            newGifCard.appendChild(imgGif);
-            sectorBusqueda.appendChild(newGifCard);
+        let tituloBusqueda = document.createElement("h2");
+        tituloBusqueda.classList.add("title-search")
+        tituloBusqueda.innerText = ultimaBusqueda;
+        sectorBusqueda.classList.add("busqueda-section");
+        sectorBusqueda.innerHTML = "";
+        btnVerMas.classList.add("btn-vermas");
+        btnVerMas.innerText = "VER MAS";
+        btnVerMas.remove();
+        sectorBusqueda.appendChild(tituloBusqueda);
+        if (valorBusqueda.length <= limiteBusqueda) {
+            for (let i = 0; i < valorBusqueda.length; i++) {
+                let gifElement = valorBusqueda[i];
+                let title = document.createElement("h3");
+                let user = document.createElement("h4");
+                let newGifCard = document.createElement("div");
+                let newCardOver = document.createElement("div");
+                newCardOver.classList.add("card-mouseover");
+                newGifCard.classList.add("gif-card");
+                let imgGif = document.createElement("img");
+                imgGif.classList.add("gif-img");
+                imgGif.src = gifElement.images.original.url;
+                newGifCard.appendChild(imgGif);
+                newCardOver.appendChild(user);
+                newCardOver.appendChild(title);
+                user.innerHTML = gifElement.username;
+                title.innerHTML = gifElement.title;
+                newGifCard.appendChild(newCardOver);
+                sectorBusqueda.appendChild(newGifCard);
+                sectorBusqueda.appendChild(btnVerMas);
+            }
+        } else {
+            for (let i = 0; i < valorBusqueda.length; i++) {
+                let gifElement = valorBusqueda[i];
+                let title = document.createElement("h3");
+                let user = document.createElement("h4");
+                let newGifCard = document.createElement("div");
+                let newCardOver = document.createElement("div");
+                newCardOver.classList.add("card-mouseover");
+                newGifCard.classList.add("gif-card");
+                let imgGif = document.createElement("img");
+                imgGif.classList.add("gif-img");
+                imgGif.src = gifElement.images.original.url;
+                newGifCard.appendChild(imgGif);
+                newCardOver.appendChild(user);
+                newCardOver.appendChild(title);
+                user.innerHTML = gifElement.username;
+                title.innerHTML = gifElement.title;
+                newGifCard.appendChild(newCardOver);
+                sectorBusqueda.appendChild(newGifCard);
+            }
         }
     }
     console.log(sectorBusqueda);
@@ -211,23 +233,42 @@ function recargaBusqueda(data) {
     if (valorBusqueda.length <= limiteBusqueda) {
         for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
+            let title = document.createElement("h3");
+            let user = document.createElement("h4");
             let newGifCard = document.createElement("div");
+            let newCardOver = document.createElement("div");
+            newCardOver.classList.add("card-mouseover");
             newGifCard.classList.add("gif-card");
             let imgGif = document.createElement("img");
             imgGif.classList.add("gif-img");
             imgGif.src = gifElement.images.original.url;
             newGifCard.appendChild(imgGif);
+            newCardOver.appendChild(user);
+            newCardOver.appendChild(title);
+            user.innerHTML = gifElement.username;
+            title.innerHTML = gifElement.title;
+            newGifCard.appendChild(newCardOver);
             sectorBusqueda.appendChild(newGifCard);
         }
         sectorBusqueda.appendChild(btnVerMas);
     } else {
         for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
+            let title = document.createElement("h3");
+            let user = document.createElement("h4");
             let newGifCard = document.createElement("div");
+            let newCardOver = document.createElement("div");
+            newCardOver.classList.add("card-mouseover");
             newGifCard.classList.add("gif-card");
             let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
             imgGif.src = gifElement.images.original.url;
             newGifCard.appendChild(imgGif);
+            newCardOver.appendChild(user);
+            newCardOver.appendChild(title);
+            user.innerHTML = gifElement.username;
+            title.innerHTML = gifElement.title;
+            newGifCard.appendChild(newCardOver);
             sectorBusqueda.appendChild(newGifCard);
         }
     }
@@ -259,4 +300,22 @@ function muestraTrendings(data) {
         nuevoLiTrending.innerHTML = itemTrending;
     }
     console.log(listaTrending);
+}
+
+function displayBusquedaError() {
+    sectorBusqueda.innerHTML = "";
+    let sinResultadosContainer = document.createElement("div");
+    sinResultadosContainer.classList.add("result-container");
+    let busquedaTitle = document.createElement("h2");
+    busquedaTitle.classList.add("title-search")
+    busquedaTitle.innerText = "Lorem Ipsum"
+    let imgResultadoBusqueda = document.createElement("img");
+    imgResultadoBusqueda.src = "assets/icon-busqueda-sin-resultado.svg";
+    let underTitleSearch = document.createElement("h3");
+    underTitleSearch.classList.add("under-title");
+    underTitleSearch.innerText = "Intenta con otra búsqueda.";
+    sinResultadosContainer.appendChild(busquedaTitle);
+    sinResultadosContainer.appendChild(imgResultadoBusqueda);
+    sinResultadosContainer.appendChild(underTitleSearch);
+    sectorBusqueda.appendChild(sinResultadosContainer);
 }

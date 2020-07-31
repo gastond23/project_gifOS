@@ -117,6 +117,7 @@ header picture h1 span {
 
 header picture img {
   margin-top: 1.5em;
+  width: 80%;
 }
 
 header picture .buscador-container {
@@ -480,7 +481,6 @@ footer p {
 }
 
 .busqueda-section .gif-card {
-  display: block;
   margin: 0.5em;
   height: 120px;
   width: 156px;
@@ -489,20 +489,34 @@ footer p {
 }
 
 .busqueda-section .gif-card .gif-img {
+  display: block;
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.busqueda-section .gif-card .gif-img:hover {
-  z-index: -10;
+.busqueda-section .gif-card .card-mouseover {
+  margin-top: -120px;
+  position: relative;
+  height: 120px;
+  width: 156px;
+  background-color: #572EE5;
+  z-index: 1;
   opacity: 0.6;
 }
 
-.busqueda-section .gif-card:hover {
-  background-color: #572EE5;
-  z-index: 10;
+.busqueda-section .gif-card .card-mouseover h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.busqueda-section .gif-card .card-mouseover h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .busqueda-section .btn-vermas {
