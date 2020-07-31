@@ -8,11 +8,20 @@ let valorBusqueda = "";
 let limiteBusqueda = 12;
 let offset = 0;
 let ultimaBusqueda;
-
-//Fetch en JQuery para trending gifs desde GIPHY
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
-var xhr = $.get(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limiteBusqueda}&rating=g`);
-xhr.done(function (data) { carrouselGif(data); });
+
+function busquedaRandom(url) {
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            carrouselGif(data);
+        })
+        .catch(err => {
+            console.error('fetch failed', err);
+        })
+}
+
+busquedaRandom(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limiteBusqueda}&rating=g`);
 
 //Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
 function carrouselGif(data) {
@@ -38,18 +47,14 @@ function slideMenuHaburguesa() {
         menuBurguer.src = "assets/close.svg";
         menuValor = false;
         document.getElementById("body").classList.add("no-scroll");
+        document.getElementById("menu").style.display = "flex";
     } else {
         menuValor = true;
         menuBurguer.src = "assets/burger.svg";
+        document.getElementById("menu").style.display = "none";
         document.getElementById("body").classList.remove("no-scroll");
     }
 }
-
-$(document).ready(function () {
-    $('#menu_ham').on('click', function () {
-        $('#menu').toggle('slow');
-    });
-});
 
 //Llamado de la función Year para mostrar el año en copyright y que quede siempre actualizado
 Year();
@@ -192,3 +197,6 @@ function recargaBusqueda(data) {
         }
     }
 }
+
+
+
