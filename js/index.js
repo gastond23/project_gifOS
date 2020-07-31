@@ -110,6 +110,7 @@ function getData(data) {
 //Capturar el evento click de la lista creada con sugerencias para el autocompletado
 document.getElementById("lista_search").addEventListener("click", function (e) {
     search.value = e.target.textContent;
+    imgLupa.src = "assets/icon-search.svg";
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
 })
@@ -118,6 +119,9 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
 
 document.getElementById("buscador").addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
+        imgLupa.src = "assets/icon-search.svg";
+        listadoSearch.innerHTML = "";
+        listadoSearch.classList.remove("menu-activo");
         getBusquedaGiphy();
     }
 })
@@ -127,7 +131,6 @@ document.getElementById("lupa").addEventListener("click", () => {
 });
 
 function getBusquedaGiphy(ultimaBusqueda) {
-    imgLupa.src = "assets/icon-search.svg";
     if (ultimaBusqueda == undefined) {
         offset = 0;
         return fetch(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`)
@@ -157,11 +160,15 @@ function muestraBusqueda(data) {
     search.value = "";
     console.log(data.data);
     valorBusqueda = data.data;
+    let tituloBusqueda = document.createElement("h2");
+    tituloBusqueda.classList.add("title-search")
+    tituloBusqueda.innerText = ultimaBusqueda;
     sectorBusqueda.classList.add("busqueda-section");
     sectorBusqueda.innerHTML = "";
     btnVerMas.classList.add("btn-vermas");
     btnVerMas.innerText = "VER MAS";
     btnVerMas.remove();
+    sectorBusqueda.appendChild(tituloBusqueda);
     if (valorBusqueda.length <= limiteBusqueda) {
         for (let i = 0; i < valorBusqueda.length; i++) {
             let gifElement = valorBusqueda[i];
