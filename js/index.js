@@ -16,6 +16,9 @@ let gifId;
 let userName = document.getElementById("user_giphy_title");
 let giphyTitle = document.getElementById("giphy_title");
 let imgGiphy = document.getElementById("giphy_imagen");
+let like = document.getElementById("like_favoritos");
+let download = document.getElementById("gif_download");
+let likesFavoritos = [];
 
 function busquedaRandom(url) {
     return fetch(url)
@@ -361,6 +364,7 @@ function maximizarGif(data) {
     datosGiphyMax = data.data;
     userName.innerText = datosGiphyMax.username;
     giphyTitle.innerText = datosGiphyMax.title;
+    imgGiphy.alt = datosGiphyMax.id;
     imgGiphy.src = datosGiphyMax.images.original.url;
     document.getElementById("body").classList.add("no-scroll");
 }
@@ -374,3 +378,21 @@ closePopUp.addEventListener("click", () => {
     imgGiphy.src = "";
     document.getElementById("body").classList.remove("no-scroll");
 })
+
+like.addEventListener("click", actualizarFavoritos);
+
+function actualizarFavoritos() {
+    debugger;
+    let gifId = imgGiphy.alt;
+    let favoritosTexto = localStorage.getItem("listafavoritosGifos");
+    if (favoritosTexto == null) {
+        likesFavoritos = [];
+
+    } else {
+        likesFavoritos = JSON.parse(favoritosTexto);
+    }
+    likesFavoritos.push(gifId);
+    console.log(likesFavoritos);
+    favoritosTexto = JSON.stringify(likesFavoritos);
+    localStorage.setItem("listafavoritosGifos", favoritosTexto);
+}
