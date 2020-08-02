@@ -9,6 +9,7 @@ let limiteBusqueda = 12;
 let offset = 0;
 let ultimaBusqueda;
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
+let buscando;
 
 function busquedaRandom(url) {
     return fetch(url)
@@ -98,18 +99,25 @@ function busqueda() {
 
 //Esta funcion obtiene los valores buscados en GIPHY y los muestra en el DOM, agregando los <li> en el <ul> del buscador
 function getData(data) {
-    imgLupa.src = "assets/close.svg";
-    listadoSearch.classList.add("menu-activo");
-    let datoBusqueda = data.data;
-    listadoSearch.innerHTML = `<li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
-    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[1].name}</li>
-    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[2].name}</li>
-    <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[3].name}</li>`;
+    if (search.value != null) {
+        imgLupa.src = "assets/close.svg";
+        listadoSearch.classList.add("menu-activo");
+        let datoBusqueda = data.data;
+        listadoSearch.innerHTML = `<li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
+        <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[1].name}</li>
+        <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[2].name}</li>
+        <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[3].name}</li>`;
+    } else {
+        listadoSearch.innerHTML = "";
+        listadoSearch.classList.remove("menu-activo");
+        imgLupa.src = "assets/icon-search.svg";
+    }
 }
 
 //Capturar el evento click de la lista creada con sugerencias para el autocompletado
 document.getElementById("lista_search").addEventListener("click", function (e) {
     search.value = e.target.textContent;
+    buscando = search.value;
     imgLupa.src = "assets/icon-search.svg";
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
@@ -119,12 +127,10 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
 
 document.getElementById("buscador").addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
-        imgLupa.src = "assets/icon-search.svg";
-        listadoSearch.innerHTML = "";
-        listadoSearch.classList.remove("menu-activo");
+        buscando = search.value;
         getBusquedaGiphy();
     }
-})
+});
 
 document.getElementById("lupa").addEventListener("click", () => {
     getBusquedaGiphy();
@@ -133,7 +139,7 @@ document.getElementById("lupa").addEventListener("click", () => {
 function getBusquedaGiphy(ultimaBusqueda) {
     if (ultimaBusqueda == undefined) {
         offset = 0;
-        return fetch(`https://api.giphy.com/v1/gifs/search?q=${search.value}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`)
+        return fetch(`https://api.giphy.com/v1/gifs/search?q=${buscando}&api_key=${apiKey}&limit=${limiteBusqueda}&offset=${offset}`)
             .then(response => response.json())
             .then(data => {
                 muestraBusqueda(data);
@@ -154,11 +160,11 @@ function getBusquedaGiphy(ultimaBusqueda) {
 }
 
 function muestraBusqueda(data) {
+    ultimaBusqueda = buscando
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
-    ultimaBusqueda = search.value;
+    imgLupa.src = "assets/icon-search.svg";
     search.value = "";
-    console.log(data.data);
     valorBusqueda = data.data;
     if (valorBusqueda.length == 0) {
         displayBusquedaError();
@@ -184,6 +190,7 @@ function muestraBusqueda(data) {
                 let imgGif = document.createElement("img");
                 imgGif.classList.add("gif-img");
                 imgGif.src = gifElement.images.original.url;
+                imgGif.alt = gifElement.id;
                 newGifCard.appendChild(imgGif);
                 newCardOver.appendChild(user);
                 newCardOver.appendChild(title);
@@ -205,6 +212,7 @@ function muestraBusqueda(data) {
                 let imgGif = document.createElement("img");
                 imgGif.classList.add("gif-img");
                 imgGif.src = gifElement.images.original.url;
+                imgGif.alt = gifElement.id;
                 newGifCard.appendChild(imgGif);
                 newCardOver.appendChild(user);
                 newCardOver.appendChild(title);
@@ -242,6 +250,7 @@ function recargaBusqueda(data) {
             let imgGif = document.createElement("img");
             imgGif.classList.add("gif-img");
             imgGif.src = gifElement.images.original.url;
+            imgGif.alt = gifElement.id;
             newGifCard.appendChild(imgGif);
             newCardOver.appendChild(user);
             newCardOver.appendChild(title);
@@ -263,6 +272,7 @@ function recargaBusqueda(data) {
             let imgGif = document.createElement("img");
             imgGif.classList.add("gif-img");
             imgGif.src = gifElement.images.original.url;
+            imgGif.alt = gifElement.id;
             newGifCard.appendChild(imgGif);
             newCardOver.appendChild(user);
             newCardOver.appendChild(title);
@@ -289,7 +299,6 @@ function trendingsSug(url) {
 trendingsSug(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}&limit=5&rating=g`);
 
 function muestraTrendings(data) {
-    debugger;
     let trendings = data.data;
     let listaTrending = document.getElementById("trendings_sug");
     listaTrending.classList.add("container-li");
@@ -317,5 +326,32 @@ function displayBusquedaError() {
     sinResultadosContainer.appendChild(busquedaTitle);
     sinResultadosContainer.appendChild(imgResultadoBusqueda);
     sinResultadosContainer.appendChild(underTitleSearch);
+    sectorBusqueda.classList.add("busqueda-section");
     sectorBusqueda.appendChild(sinResultadosContainer);
+    console.log(sectorBusqueda);
+}
+
+sectorBusqueda.addEventListener("click", function (e) {
+    let gifId = e.target.alt;
+    if (gifId != undefined) {
+        let popUp = document.getElementById("overlay");
+        popUp.classList.add("active");
+        locateGif(gifId);
+    }
+})
+
+function locateGif(gifId) {
+    console.log(gifId);
+    return fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            maximizarGif(data);
+        })
+        .catch(err => {
+            console.error('fetch failed', err);
+        })
+}
+
+function maximizarGif(data) {
+    console.log(data);
 }

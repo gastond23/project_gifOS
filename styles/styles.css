@@ -467,6 +467,49 @@ footer p {
   padding-bottom: 1em;
 }
 
+.busqueda-section .result-container {
+  width: 100%;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.busqueda-section .result-container .title-search {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  color: #572EE5;
+}
+
+.busqueda-section .result-container img {
+  margin-top: 5em;
+}
+
+.busqueda-section .result-container .under-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: #50E3C2;
+  margin: 2em;
+}
+
 .busqueda-section .title-search {
   -ms-grid-column: 1;
       grid-column-start: 1;
@@ -493,6 +536,7 @@ footer p {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 
 .busqueda-section .gif-card .card-mouseover {
@@ -549,4 +593,54 @@ footer p {
 .busqueda-section .btn-vermas:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+/** OVERLAY POPUP **/
+main .overlay {
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+}
+
+main .overlay .popup {
+  background: none;
+}
+
+main .overlay .gif-maximized {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .overlay .gif-maximized .text-container h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #000000;
+}
+
+main .overlay .gif-maximized .text-container h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+}
+
+main .overlay.active {
+  visibility: visible;
 }
