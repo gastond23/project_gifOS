@@ -353,5 +353,11 @@ function locateGif(gifId) {
 }
 
 function maximizarGif(data) {
-    console.log(data);
+    let datosGiphyMax = data.data;
+    let userName = document.getElementById("user_giphy_title");
+    let giphyTitle = document.getElementById("giphy_title");
+    let imgGiphy = document.getElementById("giphy_imagen");
+    userName.innerText = datosGiphyMax.username;
+    giphyTitle.innerText = datosGiphyMax.title;
+    imgGiphy.src = datosGiphyMax.images.original.url;
 }
