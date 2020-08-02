@@ -10,21 +10,45 @@ main
         align-items: center
         justify-content: center
         visibility: hidden
+        width: 100%
         .popup
             background: none
+            display: flex
+            flex-direction: column
+            align-items: center
+            width: 90%
             .close-popup
+                margin-left: 100%
+                cursor: pointer
         .gif-maximized
             display: flex
             justify-content: space-between
-            .text-container
-                h3
-                    font-family: $font-principal
-                    font-size: 15px
-                    color: #000000
-                h2
-                    font-family: $font-alterna
-                    font-size: 16px
-                    color: #000000
-                    font-weight: bold
+            flex-direction: column
+            padding-top: 3em
+            padding-bottom: 3em
+            width: 100%
+            object-fit: cover
+            .inline-description
+                display: flex
+                width: 100%
+                padding: 1em
+                .text-container
+                    width: 100%
+                    h3
+                        font-family: $font-principal
+                        font-size: 15px
+                        color: #000000
+                    h2
+                        font-family: $font-alterna
+                        font-size: 16px
+                        color: #000000
+                        font-weight: bold
+                .icon-giphy-container
+                    display: flex
+                    justify-content: flex-end
+                    align-items: center
+                    a
+                        img
+                            padding: 5px
     .overlay.active
         visibility: visible

@@ -10,6 +10,12 @@ let offset = 0;
 let ultimaBusqueda;
 let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
 let buscando;
+let popUp = document.getElementById("overlay");
+let datosGiphyMax;
+let gifId;
+let userName = document.getElementById("user_giphy_title");
+let giphyTitle = document.getElementById("giphy_title");
+let imgGiphy = document.getElementById("giphy_imagen");
 
 function busquedaRandom(url) {
     return fetch(url)
@@ -332,16 +338,14 @@ function displayBusquedaError() {
 }
 
 sectorBusqueda.addEventListener("click", function (e) {
-    let gifId = e.target.alt;
+    gifId = e.target.alt;
     if (gifId != undefined) {
-        let popUp = document.getElementById("overlay");
         popUp.classList.add("active");
         locateGif(gifId);
     }
 })
 
 function locateGif(gifId) {
-    console.log(gifId);
     return fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
@@ -353,11 +357,20 @@ function locateGif(gifId) {
 }
 
 function maximizarGif(data) {
-    let datosGiphyMax = data.data;
-    let userName = document.getElementById("user_giphy_title");
-    let giphyTitle = document.getElementById("giphy_title");
-    let imgGiphy = document.getElementById("giphy_imagen");
+    gifId = "";
+    datosGiphyMax = data.data;
     userName.innerText = datosGiphyMax.username;
     giphyTitle.innerText = datosGiphyMax.title;
     imgGiphy.src = datosGiphyMax.images.original.url;
+    document.getElementById("body").classList.add("no-scroll");
 }
+
+let closePopUp = document.getElementById("close_popup");
+closePopUp.addEventListener("click", () => {
+    datosGiphyMax = "";
+    popUp.classList.remove("active");
+    userName.innerText = "";
+    giphyTitle.innerText = "";
+    imgGiphy.src = "";
+    document.getElementById("body").classList.remove("no-scroll");
+})

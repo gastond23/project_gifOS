@@ -613,10 +613,27 @@ main .overlay {
       -ms-flex-pack: center;
           justify-content: center;
   visibility: hidden;
+  width: 100%;
 }
 
 main .overlay .popup {
   background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+}
+
+main .overlay .popup .close-popup {
+  margin-left: 100%;
+  cursor: pointer;
 }
 
 main .overlay .gif-maximized {
@@ -626,19 +643,56 @@ main .overlay .gif-maximized {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-main .overlay .gif-maximized .text-container h3 {
+main .overlay .gif-maximized .inline-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 1em;
+}
+
+main .overlay .gif-maximized .inline-description .text-container {
+  width: 100%;
+}
+
+main .overlay .gif-maximized .inline-description .text-container h3 {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: #000000;
 }
 
-main .overlay .gif-maximized .text-container h2 {
+main .overlay .gif-maximized .inline-description .text-container h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #000000;
   font-weight: bold;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
+  padding: 5px;
 }
 
 main .overlay.active {
