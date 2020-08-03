@@ -214,6 +214,45 @@ main .trending-gifos .container-carrousel ul li img {
   }
 }
 
+/** TITLE FAVORITOS & SECTION **/
+.title-favoritos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.title-favoritos h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #572EE5;
+  padding: 1em;
+}
+
+.listado-favoritos {
+  width: 100%;
+  background-color: #ffffff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  padding-bottom: 1em;
+}
+
 /** FOOTER **/
 footer {
   display: -webkit-box;

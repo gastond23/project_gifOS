@@ -187,7 +187,7 @@ function muestraBusqueda(data) {
         btnVerMas.innerText = "VER MAS";
         btnVerMas.remove();
         sectorBusqueda.appendChild(tituloBusqueda);
-        if (valorBusqueda.length <= limiteBusqueda) {
+        if (valorBusqueda.length == limiteBusqueda) {
             for (let i = 0; i < valorBusqueda.length; i++) {
                 let gifElement = valorBusqueda[i];
                 let title = document.createElement("h3");
