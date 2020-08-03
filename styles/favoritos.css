@@ -242,7 +242,7 @@ main .trending-gifos .container-carrousel ul li img {
   padding: 1em;
 }
 
-.listado-favoritos {
+.galeria-favoritos {
   width: 100%;
   background-color: #ffffff;
   display: -ms-grid;
@@ -251,6 +251,22 @@ main .trending-gifos .container-carrousel ul li img {
       grid-template-columns: 1fr 1fr;
   grid-auto-rows: auto;
   padding-bottom: 1em;
+}
+
+.galeria-favoritos .gif-card {
+  margin: 0.5em;
+  height: 120px;
+  width: 156px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.galeria-favoritos .gif-card .gif-img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /** FOOTER **/

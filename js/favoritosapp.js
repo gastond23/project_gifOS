@@ -62,4 +62,5 @@ function muestraFavoritos(data) {
             }
         }
     }
+    console.log(sectionFavoritos);
 }
