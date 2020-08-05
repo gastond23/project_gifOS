@@ -197,49 +197,28 @@ function muestraBusqueda(data) {
         btnVerMas.innerText = "VER MAS";
         btnVerMas.remove();
         sectorBusqueda.appendChild(tituloBusqueda);
+        for (let i = 0; i < valorBusqueda.length; i++) {
+            let gifElement = valorBusqueda[i];
+            let title = document.createElement("h3");
+            let user = document.createElement("h4");
+            let newGifCard = document.createElement("div");
+            let newCardOver = document.createElement("div");
+            newCardOver.classList.add("card-mouseover");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
+            imgGif.src = gifElement.images.original.url;
+            imgGif.alt = gifElement.id;
+            newGifCard.appendChild(imgGif);
+            newCardOver.appendChild(user);
+            newCardOver.appendChild(title);
+            user.innerHTML = gifElement.username;
+            title.innerHTML = gifElement.title;
+            newGifCard.appendChild(newCardOver);
+            sectorBusqueda.appendChild(newGifCard);
+        }
         if (valorBusqueda.length == limiteBusqueda) {
-            for (let i = 0; i < valorBusqueda.length; i++) {
-                let gifElement = valorBusqueda[i];
-                let title = document.createElement("h3");
-                let user = document.createElement("h4");
-                let newGifCard = document.createElement("div");
-                let newCardOver = document.createElement("div");
-                newCardOver.classList.add("card-mouseover");
-                newGifCard.classList.add("gif-card");
-                let imgGif = document.createElement("img");
-                imgGif.classList.add("gif-img");
-                imgGif.src = gifElement.images.original.url;
-                imgGif.alt = gifElement.id;
-                newGifCard.appendChild(imgGif);
-                newCardOver.appendChild(user);
-                newCardOver.appendChild(title);
-                user.innerHTML = gifElement.username;
-                title.innerHTML = gifElement.title;
-                newGifCard.appendChild(newCardOver);
-                sectorBusqueda.appendChild(newGifCard);
-                sectorBusqueda.appendChild(btnVerMas);
-            }
-        } else {
-            for (let i = 0; i < valorBusqueda.length; i++) {
-                let gifElement = valorBusqueda[i];
-                let title = document.createElement("h3");
-                let user = document.createElement("h4");
-                let newGifCard = document.createElement("div");
-                let newCardOver = document.createElement("div");
-                newCardOver.classList.add("card-mouseover");
-                newGifCard.classList.add("gif-card");
-                let imgGif = document.createElement("img");
-                imgGif.classList.add("gif-img");
-                imgGif.src = gifElement.images.original.url;
-                imgGif.alt = gifElement.id;
-                newGifCard.appendChild(imgGif);
-                newCardOver.appendChild(user);
-                newCardOver.appendChild(title);
-                user.innerHTML = gifElement.username;
-                title.innerHTML = gifElement.title;
-                newGifCard.appendChild(newCardOver);
-                sectorBusqueda.appendChild(newGifCard);
-            }
+            sectorBusqueda.appendChild(btnVerMas);
         }
     }
     console.log(sectorBusqueda);
