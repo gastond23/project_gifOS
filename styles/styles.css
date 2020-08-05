@@ -122,7 +122,7 @@ header picture img {
 header picture .buscador-container {
   border: 1px solid #572EE5;
   border-radius: 27px;
-  width: 90%;
+  width: 92%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,6 +140,22 @@ header picture .buscador-container .contenedor-search {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+}
+
+header picture .buscador-container .contenedor-search svg {
+  height: 20px;
+  width: 20px;
+  margin-top: 1em;
+  margin-left: 1.1em;
+  visibility: hidden;
+}
+
+header picture .buscador-container .contenedor-search svg use {
+  fill: #9CAFC3;
+}
+
+header picture .buscador-container .contenedor-search .lupavisible {
+  visibility: visible;
 }
 
 header picture .buscador-container .contenedor-search input {
@@ -166,6 +182,12 @@ header picture .buscador-container .contenedor-search button {
   border: none;
   background: none;
   margin-top: -1.2em;
+}
+
+header picture .buscador-container .contenedor-search button img {
+  padding-right: 1em;
+  width: 100%;
+  height: 100%;
 }
 
 header picture .buscador-container .contenedor-search button:focus {
@@ -691,6 +713,11 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container {
           align-items: center;
 }
 
+main .overlay .gif-maximized .inline-description .icon-giphy-container a {
+  display: block;
+  cursor: pointer;
+}
+
 main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
   padding: 5px;
 }
@@ -698,4 +725,3 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
 main .overlay.active {
   visibility: visible;
 }
-/*# sourceMappingURL=styles.css.map */

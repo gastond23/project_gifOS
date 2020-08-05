@@ -18,6 +18,7 @@ let giphyTitle = document.getElementById("giphy_title");
 let imgGiphy = document.getElementById("giphy_imagen");
 let like = document.getElementById("like_favoritos");
 let download = document.getElementById("gif_download");
+let lupaOculta = document.getElementById("lupa_oculta");
 let likesFavoritos = [];
 
 function busquedaRandom(url) {
@@ -111,6 +112,7 @@ function getData(data) {
     if (search.value != null) {
         imgLupa.src = "assets/close.svg";
         listadoSearch.classList.add("menu-activo");
+        lupaOculta.classList.add("lupavisible");
         let datoBusqueda = data.data;
         listadoSearch.innerHTML = `<li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[0].name}</li>
         <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[1].name}</li>
@@ -118,6 +120,7 @@ function getData(data) {
         <li class="item"><svg><use href="assets/icon-search.svg#path-1"></use></svg>${datoBusqueda[3].name}</li>`;
     } else {
         listadoSearch.innerHTML = "";
+        lupaOculta.classList.remove("lupavisible");
         listadoSearch.classList.remove("menu-activo");
         imgLupa.src = "assets/icon-search.svg";
     }
@@ -125,6 +128,7 @@ function getData(data) {
 
 //Capturar el evento click de la lista creada con sugerencias para el autocompletado
 document.getElementById("lista_search").addEventListener("click", function (e) {
+    lupaOculta.classList.remove("lupavisible");
     search.value = e.target.textContent;
     buscando = search.value;
     imgLupa.src = "assets/icon-search.svg";
@@ -169,12 +173,14 @@ function getBusquedaGiphy(ultimaBusqueda) {
 }
 
 function muestraBusqueda(data) {
+    lupaOculta.classList.remove("lupavisible");
     ultimaBusqueda = buscando
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
     imgLupa.src = "assets/icon-search.svg";
     search.value = "";
     valorBusqueda = data.data;
+    console.log(valorBusqueda)
     if (valorBusqueda.length == 0) {
         displayBusquedaError();
     } else {
@@ -366,6 +372,9 @@ function maximizarGif(data) {
     giphyTitle.innerText = datosGiphyMax.title;
     imgGiphy.alt = datosGiphyMax.id;
     imgGiphy.src = datosGiphyMax.images.original.url;
+    download.download = datosGiphyMax.title;
+    download.href = datosGiphyMax.images.original.url;
+    console.log(download);
     document.getElementById("body").classList.add("no-scroll");
 }
 
