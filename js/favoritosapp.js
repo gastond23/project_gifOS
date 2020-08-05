@@ -47,7 +47,6 @@ function muestraFavoritos(data) {
         }
         if (likeGifs.length == limit) {
             sectionFavoritos.appendChild(btnVerMas);
-
         }
         console.log(sectionFavoritos);
     }
