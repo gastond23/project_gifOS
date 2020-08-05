@@ -349,6 +349,7 @@ main .trending-gifos .container-carrousel .img-gif-slider {
   width: 60%;
   -o-object-fit: cover;
      object-fit: cover;
+  scroll-snap-align: center;
   border: 10px solid rgba(0, 0, 0, 0);
 }
 
