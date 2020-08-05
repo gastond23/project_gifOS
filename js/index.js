@@ -384,7 +384,10 @@ closePopUp.addEventListener("click", () => {
     document.getElementById("body").classList.remove("no-scroll");
 })
 
-like.addEventListener("click", actualizarFavoritos);
+like.addEventListener("click", function (e) {
+    e.preventDefault();
+    actualizarFavoritos();
+});
 
 function actualizarFavoritos() {
     let gifId = imgGiphy.alt;//Tomo el ID del GIF

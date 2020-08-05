@@ -82,7 +82,7 @@ nav label {
 }
 
 /** HEADER **/
-header picture {
+header .titulos-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,7 +98,7 @@ header picture {
   margin-top: 1em;
 }
 
-header picture h1 {
+header .titulos-header h1 {
   font-family: "Montserrat", sans-serif;
   color: #572EE5;
   font-size: 25px;
@@ -110,16 +110,16 @@ header picture h1 {
       align-self: center;
 }
 
-header picture h1 span {
+header .titulos-header h1 span {
   color: #50E3C2;
 }
 
-header picture img {
+header .titulos-header img {
   margin-top: 1.5em;
   width: 80%;
 }
 
-header picture .buscador-container {
+header .titulos-header .buscador-container {
   border: 1px solid #572EE5;
   border-radius: 27px;
   width: 92%;
@@ -135,14 +135,14 @@ header picture .buscador-container {
           align-items: center;
 }
 
-header picture .buscador-container .contenedor-search {
+header .titulos-header .buscador-container .contenedor-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
-header picture .buscador-container .contenedor-search svg {
+header .titulos-header .buscador-container .contenedor-search svg {
   height: 20px;
   width: 20px;
   visibility: hidden;
@@ -152,15 +152,15 @@ header picture .buscador-container .contenedor-search svg {
   margin-left: 16px;
 }
 
-header picture .buscador-container .contenedor-search svg use {
+header .titulos-header .buscador-container .contenedor-search svg use {
   fill: #9CAFC3;
 }
 
-header picture .buscador-container .contenedor-search .lupavisible {
+header .titulos-header .buscador-container .contenedor-search .lupavisible {
   visibility: visible;
 }
 
-header picture .buscador-container .contenedor-search input {
+header .titulos-header .buscador-container .contenedor-search input {
   border: none;
   width: 90%;
   font-family: "Roboto", sans-serif;
@@ -172,39 +172,39 @@ header picture .buscador-container .contenedor-search input {
   padding-left: 1em;
 }
 
-header picture .buscador-container .contenedor-search input:focus {
+header .titulos-header .buscador-container .contenedor-search input:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture .buscador-container .contenedor-search button {
+header .titulos-header .buscador-container .contenedor-search button {
   display: block;
   border: none;
   background: none;
   margin-top: -1.2em;
 }
 
-header picture .buscador-container .contenedor-search button img {
+header .titulos-header .buscador-container .contenedor-search button img {
   display: block;
   margin-right: 20px;
   width: 20px;
   height: 20px;
 }
 
-header picture .buscador-container .contenedor-search button:focus {
+header .titulos-header .buscador-container .contenedor-search button:focus {
   outline: none;
   outline-width: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-header picture .buscador-container .contenedor-search button:hover {
+header .titulos-header .buscador-container .contenedor-search button:hover {
   cursor: pointer;
 }
 
-header picture .buscador-container ul {
+header .titulos-header .buscador-container ul {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -218,7 +218,7 @@ header picture .buscador-container ul {
   width: 90%;
 }
 
-header picture .buscador-container ul li {
+header .titulos-header .buscador-container ul li {
   font-family: "Roboto", sans-serif;
   display: block;
   font-size: 16px;
@@ -232,18 +232,18 @@ header picture .buscador-container ul li {
       align-self: center;
 }
 
-header picture .buscador-container ul li svg {
+header .titulos-header .buscador-container ul li svg {
   height: 20px;
   width: 20px;
   margin-left: -1.5em;
   margin-right: 1em;
 }
 
-header picture .buscador-container ul li svg use {
+header .titulos-header .buscador-container ul li svg use {
   fill: #9CAFC3;
 }
 
-header picture .buscador-container .menu-activo {
+header .titulos-header .buscador-container .menu-activo {
   border-top: 1px solid #9CAFC3;
 }
 
