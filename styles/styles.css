@@ -243,7 +243,7 @@ header picture .buscador-container .menu-activo {
 
 header .trending {
   width: 80%;
-  height: 18vh;
+  height: 20vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,6 +265,7 @@ header .trending h2 {
   font-size: 25px;
   line-height: 25px;
   margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 header .trending .container-li {
@@ -277,7 +278,7 @@ header .trending .container-li {
       -ms-flex-pack: center;
           justify-content: center;
   list-style: none;
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
@@ -351,6 +352,7 @@ main .trending-gifos .container-carrousel .img-gif-slider {
      object-fit: cover;
   scroll-snap-align: center;
   border: 10px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 /** FOOTER **/
@@ -464,6 +466,7 @@ footer p {
   font-size: 25px;
   text-align: center;
   margin: auto;
+  padding-bottom: 1.5em;
 }
 
 .busqueda-section .gif-card {
@@ -524,7 +527,10 @@ footer p {
   border-radius: 25px;
   border-radius: 25px;
   cursor: pointer;
-  margin: auto;
+  margin-top: 3em;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .busqueda-section .btn-vermas:focus {
@@ -593,6 +599,10 @@ main .overlay .gif-maximized {
           flex-direction: column;
   padding-top: 3em;
   padding-bottom: 3em;
+  width: 100%;
+}
+
+main .overlay .gif-maximized img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
