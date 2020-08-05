@@ -129,7 +129,7 @@ main .trending-gifos .container-carrousel {
 }
 
 main .trending-gifos .container-carrousel .img-gif-slider {
-  width: 60%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   scroll-snap-align: center;
