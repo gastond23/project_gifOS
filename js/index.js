@@ -37,12 +37,15 @@ busquedaRandom(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=$
 //Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
 function carrouselGif(data) {
     let arrayGif = data.data;
-    let gifSlider = "";
     for (let i = 0; i < arrayGif.length; i++) {
         let gifTrendings = arrayGif[i];
-        gifSlider += `<li><img src="${gifTrendings.images.fixed_width.url}" alt="${gifTrendings.title}"></li>`;
+        let imgTrenfGif = document.createElement("img");
+        imgTrenfGif.src = gifTrendings.images.original.url;
+        imgTrenfGif.alt = gifTrendings.title;
+        imgTrenfGif.classList.add("img-gif-slider");
+        carrouselContenedor.appendChild(imgTrenfGif);
     }
-    carrouselContenedor.innerHTML = gifSlider;
+    console.log(carrouselContenedor);
 }
 
 //Control del menu hamburghesa, declaracion de variables
