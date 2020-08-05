@@ -97,6 +97,11 @@ main {
           align-items: center;
 }
 
+main .trending-gifos {
+  display: block;
+  height: 400px;
+}
+
 main .trending-gifos h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -121,7 +126,7 @@ main .trending-gifos .container-carrousel {
   display: flex;
   margin: auto;
   max-width: 400px;
-  height: 187px;
+  height: 250px;
   width: 100%;
   overflow-x: scroll;
   -ms-scroll-snap-type: x mandatory;
@@ -129,6 +134,8 @@ main .trending-gifos .container-carrousel {
 }
 
 main .trending-gifos .container-carrousel .img-gif-slider {
+  display: block;
+  height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;

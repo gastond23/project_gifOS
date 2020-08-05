@@ -5,6 +5,8 @@ main
     flex-direction: column
     align-items: center
     .trending-gifos
+        display: block
+        height: 400px
         h2
             font-family: $font-alterna
             font-size: 20px
@@ -23,11 +25,13 @@ main
             display: flex
             margin: auto
             max-width: 400px
-            height: 187px
+            height: 250px
             width: 100%
             overflow-x: scroll
             scroll-snap-type: x mandatory
             .img-gif-slider
+                display: block
+                height: 100%
                 width: 100%
                 object-fit: cover
                 scroll-snap-align: center
