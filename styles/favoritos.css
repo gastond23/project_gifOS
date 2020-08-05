@@ -26,14 +26,15 @@ nav label {
 }
 
 .menu-burguer {
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-right: 1em;
   cursor: pointer;
 }
 
-.logo {
-  margin-top: 0.5em;
+.link-home {
+  display: block;
   margin-left: 1em;
+  margin-top: 1.2em;
 }
 
 .menu {
@@ -79,6 +80,13 @@ nav label {
   margin-right: auto;
   margin-top: 1em;
   opacity: 0.5;
+}
+
+.bar {
+  height: 5px;
+  background-color: #572EE5;
+  width: 100%;
+  display: block;
 }
 
 /** MAIN **/

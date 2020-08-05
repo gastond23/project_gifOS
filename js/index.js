@@ -8,7 +8,7 @@ let valorBusqueda = "";
 let limiteBusqueda = 12;
 let offset = 0;
 let ultimaBusqueda;
-let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4'
+let apiKey = 'Jfllnbj2B6JMigULbuJvipUj8bsKh4l4';
 let buscando;
 let popUp = document.getElementById("overlay");
 let datosGiphyMax;
@@ -22,64 +22,6 @@ let lupaOculta = document.getElementById("lupa_oculta");
 let likesFavoritos = [];
 let listaTrending = document.getElementById("trendings_sug");
 
-function busquedaRandom(url) {
-    return fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            carrouselGif(data);
-        })
-        .catch(err => {
-            console.error('fetch failed', err);
-        })
-}
-
-busquedaRandom(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limiteBusqueda}&rating=g`);
-
-//Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
-function carrouselGif(data) {
-    let arrayGif = data.data;
-    for (let i = 0; i < arrayGif.length; i++) {
-        let gifTrendings = arrayGif[i];
-        let imgTrenfGif = document.createElement("img");
-        imgTrenfGif.src = gifTrendings.images.original.url;
-        imgTrenfGif.alt = gifTrendings.id;
-        imgTrenfGif.classList.add("img-gif-slider");
-        carrouselContenedor.appendChild(imgTrenfGif);
-    }
-    console.log(carrouselContenedor);
-}
-
-//Control del menu hamburghesa, declaracion de variables
-let menuBurguer = document.getElementById("menu_ham");
-let menuValor = true;
-
-//Captación del evento click en la imagen del menu hamburguesa
-menuBurguer.addEventListener("click", slideMenuHaburguesa);
-
-//Funcion para activar y desactivar la muestra del menu hamburguesa
-function slideMenuHaburguesa() {
-    if (menuValor == true) {
-        menuBurguer.src = "assets/close.svg";
-        menuValor = false;
-        document.getElementById("body").classList.add("no-scroll");
-        document.getElementById("menu").style.display = "flex";
-    } else {
-        menuValor = true;
-        menuBurguer.src = "assets/burger.svg";
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("body").classList.remove("no-scroll");
-    }
-}
-
-//Llamado de la función Year para mostrar el año en copyright y que quede siempre actualizado
-Year();
-
-//Funcion Year para la muestra del año a traves del objeto Date y la funcion getFullYear
-function Year() {
-    let d = new Date();
-    let n = d.getFullYear();
-    document.getElementById("copyright").innerHTML = "&copy; " + n + " All Rights Reserved.";
-}
 
 //Declaracion de variables para funcionamiento del buscador
 let search = document.getElementById("buscador");
@@ -401,4 +343,31 @@ function actualizarFavoritos() {
     likesFavoritos.push(gifId);//Pusheamos el nuevo ID
     favoritosTexto = JSON.stringify(likesFavoritos);//Pasamos a texto los datos del array actualizado
     localStorage.setItem("listafavoritosGifos", favoritosTexto);//Grabamos en localStorage los id de los gifs favoritos
+}
+
+function busquedaRandom(url) {
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            carrouselGif(data);
+        })
+        .catch(err => {
+            console.error('fetch failed', err);
+        })
+}
+
+busquedaRandom(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limiteBusqueda}&rating=g`);
+
+//Llamado desde el fetch a la función para mostrar un slider de gifs en DOM
+function carrouselGif(data) {
+    let arrayGif = data.data;
+    for (let i = 0; i < arrayGif.length; i++) {
+        let gifTrendings = arrayGif[i];
+        let imgTrenfGif = document.createElement("img");
+        imgTrenfGif.src = gifTrendings.images.original.url;
+        imgTrenfGif.alt = gifTrendings.id;
+        imgTrenfGif.classList.add("img-gif-slider");
+        carrouselContenedor.appendChild(imgTrenfGif);
+    }
+    console.log(carrouselContenedor);
 }

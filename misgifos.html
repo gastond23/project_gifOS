@@ -12,27 +12,26 @@
     <header>
         <div class="bar"></div>
         <nav>
-
-            <img class="logo" src="assets/logo-mobile.svg" alt="Logo Mobile">
+            <a class="link-home" href="index.html">
+                <img class="logo" src="assets/logo-mobile.svg" alt="Logo Mobile">
+            </a>
             <label>
                 <img id="menu_ham" class="menu-burguer" src="assets/burger.svg" alt="Menú hamburguesa">
             </label>
             <ul id="menu" class="menu">
                 <li><a id="modo_nocturno" href="">Modo Nocturno</a></li>
                 <li><span></span></li>
-                <li><a id="favoritos" href="">Favoritos</a></li>
+                <li><a id="favoritos" href="favoritos.html">Favoritos</a></li>
                 <li><span></span></li>
-                <li><a id="mis_gifos" href="">Mis GIFOS</a></li>
+                <li><a id="mis_gifos" href="javascript:void(0)">Mis GIFOS</a></li>
             </ul>
         </nav>
         <main>
             <section class="trending-gifos">
                 <h2>Trending GIFOS</h2>
                 <p>Mira los últimos GIFOS de nuestra comunidad.</p>
-                <div class="container-carrousel">
-                    <ul id="container_gif">
+                <div id="container_gif" class="container-carrousel">
 
-                    </ul>
                 </div>
             </section>
         </main>
@@ -46,6 +45,10 @@
             <p id="copyright"></p>
             <div class="bar"></div>
         </footer>
+        <script src="js/misgifos.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/trendings.js"></script>
+        <script src="js/copyright-date.js"></script>
 </body>
 
 </html>
