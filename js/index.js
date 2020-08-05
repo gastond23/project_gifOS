@@ -387,17 +387,15 @@ closePopUp.addEventListener("click", () => {
 like.addEventListener("click", actualizarFavoritos);
 
 function actualizarFavoritos() {
-    debugger;
-    let gifId = imgGiphy.alt;
-    let favoritosTexto = localStorage.getItem("listafavoritosGifos");
-    if (favoritosTexto == null) {
+    let gifId = imgGiphy.alt;//Tomo el ID del GIF
+    let favoritosTexto = localStorage.getItem("listafavoritosGifos");//Leo el localStorage si no hay gif favoritos
+    if (favoritosTexto == null) { //Si el localstorage esta vacio, declaro vacio el array
         likesFavoritos = [];
 
     } else {
-        likesFavoritos = JSON.parse(favoritosTexto);
+        likesFavoritos = JSON.parse(favoritosTexto);//Parseamos los datos del localStorage
     }
-    likesFavoritos.push(gifId);
-    console.log(likesFavoritos);
-    favoritosTexto = JSON.stringify(likesFavoritos);
-    localStorage.setItem("listafavoritosGifos", favoritosTexto);
+    likesFavoritos.push(gifId);//Pusheamos el nuevo ID
+    favoritosTexto = JSON.stringify(likesFavoritos);//Pasamos a texto los datos del array actualizado
+    localStorage.setItem("listafavoritosGifos", favoritosTexto);//Grabamos en localStorage los id de los gifs favoritos
 }

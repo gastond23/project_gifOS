@@ -30,37 +30,25 @@ function fetchFavoritos(url) {
 }
 
 function muestraFavoritos(data) {
-    debugger;
     let likeGifs = data.data;
     if (likeGifs.length == 0) {
         displayNoFavoritos();
     } else {
-        if (likeGifs.length == limit) {
-            for (let i = 0; i < likeGifs.length; i++) {
-                let gifElement = likeGifs[i];
-                let newGifCard = document.createElement("div");
-                newGifCard.classList.add("gif-card");
-                let imgGif = document.createElement("img");
-                imgGif.classList.add("gif-img");
-                imgGif.src = gifElement.images.original.url;
-                imgGif.alt = gifElement.id;
-                newGifCard.appendChild(imgGif);
-                sectionFavoritos.appendChild(newGifCard);
-            }
-            sectionFavoritos.appendChild(btnVerMas);
-        } else {
-            for (let i = 0; i < likeGifs.length; i++) {
-                let gifElement = likeGifs[i];
-                let newGifCard = document.createElement("div");
-                newGifCard.classList.add("gif-card");
-                let imgGif = document.createElement("img");
-                imgGif.classList.add("gif-img");
-                imgGif.src = gifElement.images.original.url;
-                imgGif.alt = gifElement.title;
-                newGifCard.appendChild(imgGif);
-                sectionFavoritos.appendChild(newGifCard);
-            }
+        for (let i = 0; i < likeGifs.length; i++) {
+            let gifElement = likeGifs[i];
+            let newGifCard = document.createElement("div");
+            newGifCard.classList.add("gif-card");
+            let imgGif = document.createElement("img");
+            imgGif.classList.add("gif-img");
+            imgGif.src = gifElement.images.original.url;
+            imgGif.alt = gifElement.id;
+            newGifCard.appendChild(imgGif);
+            sectionFavoritos.appendChild(newGifCard);
         }
+        if (likeGifs.length == limit) {
+            sectionFavoritos.appendChild(btnVerMas);
+
+        }
+        console.log(sectionFavoritos);
     }
-    console.log(sectionFavoritos);
 }
