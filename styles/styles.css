@@ -409,10 +409,6 @@ footer .icon-container {
       justify-content: space-around;
 }
 
-footer .icon-container a:hover img {
-  fill: #572EE5;
-}
-
 footer p {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -454,10 +450,18 @@ footer p {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .busqueda-section .gif-card .gif-img {
-  display: block;
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -466,13 +470,20 @@ footer p {
 }
 
 .busqueda-section .gif-card .card-mouseover {
-  margin-top: -120px;
   position: relative;
-  height: 120px;
-  width: 156px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #572EE5;
   z-index: -1;
   opacity: 0.6;
+  height: 100%;
+  width: 100%;
+  margin-left: -100%;
 }
 
 .busqueda-section .gif-card .card-mouseover h4 {

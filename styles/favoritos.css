@@ -285,10 +285,6 @@ footer .icon-container {
       justify-content: space-around;
 }
 
-footer .icon-container a:hover img {
-  fill: #572EE5;
-}
-
 footer p {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
