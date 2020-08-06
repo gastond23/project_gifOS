@@ -371,3 +371,16 @@ function carrouselGif(data) {
     }
     console.log(carrouselContenedor);
 }
+
+download.addEventListener("click", function (e) {
+    debugger;
+    e.preventDefault();
+    let gifUrl = download.href;
+    console.log(gifUrl);
+    downloadGif(gifUrl);
+})
+
+async function downloadGif(gifUrl) {
+    let blob = await fetch(gifUrl).then(r => r.blob());;
+    invokeSaveAsDialog(blob, "myGIFO.gif");
+}

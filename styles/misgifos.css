@@ -71,6 +71,11 @@ nav label {
   display: block;
 }
 
+.menu li .disabled {
+  color: #9CAFC3;
+  cursor: default;
+}
+
 .menu li span {
   border: 1px solid #ffffff;
   height: 0;
