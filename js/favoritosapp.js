@@ -8,14 +8,20 @@ let btnVerMas = document.createElement("button");
 btnVerMas.id = "btn_vermas";
 btnVerMas.classList.add("btn-vermas");
 btnVerMas.innerText = "VER MAS";
+let favoritosEmpty = document.getElementById("favoritos_empty");
 
 getFavoritos();
 
 function getFavoritos() {
+    debugger;
     const listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
-    listadoFavoritos = JSON.parse(listadoFavoritosTexto);
-    let url = `https://api.giphy.com/v1/gifs?ids=${listadoFavoritos.toString()}&api_key=${apiKey}&limit=${limit}&offset=${offset}`;
-    fetchFavoritos(url);
+    if (listadoFavoritosTexto == null) {
+        displayNoFavoritos();
+    } else {
+        listadoFavoritos = JSON.parse(listadoFavoritosTexto);
+        let url = `https://api.giphy.com/v1/gifs?ids=${listadoFavoritos.toString()}&api_key=${apiKey}&limit=${limit}&offset=${offset}`;
+        fetchFavoritos(url);
+    }
 }
 
 function fetchFavoritos(url) {
@@ -50,4 +56,8 @@ function muestraFavoritos(data) {
         }
         console.log(sectionFavoritos);
     }
+}
+
+function displayNoFavoritos() {
+    favoritosEmpty.classList.add("activo")
 }
