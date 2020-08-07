@@ -19,3 +19,32 @@ function slideMenuHaburguesa() {
         document.getElementById("body").classList.remove("no-scroll");
     }
 }
+
+//Modificacion del menu desktop se agrega link crear Gifos
+
+let menuDesktop = document.getElementById("menu");
+let homeLogo = document.getElementById("home_logo");
+
+var x = window.matchMedia("(min-width: 600px)");
+
+function desktopNavBar(x) {
+    if (x.matches) {
+        homeLogo.src = "assets/logo-desktop.svg";
+        let nuevoLi = document.createElement("li");
+        let nuevoLink = document.createElement("a");
+        nuevoLink.classList.add("item-menu");
+        nuevoLink.href = "crear_gifo.html";
+        nuevoLink.id = "crear_gifo";
+        nuevoLink.innerText = "+"
+        nuevoLi.appendChild(nuevoLink);
+        menuDesktop.appendChild(nuevoLi);
+        let linksMenu = document.getElementsByClassName("item-menu");
+        for (let i = 0; i < linksMenu.length; i++) {
+            let textMayus = linksMenu[i].innerText;
+            textMayus = textMayus.toUpperCase();
+            linksMenu[i].innerText = textMayus;
+        }
+    }
+}
+desktopNavBar(x);
+

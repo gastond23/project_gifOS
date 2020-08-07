@@ -13,7 +13,6 @@ let favoritosEmpty = document.getElementById("favoritos_empty");
 getFavoritos();
 
 function getFavoritos() {
-    debugger;
     const listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
     if (listadoFavoritosTexto == null) {
         displayNoFavoritos();
