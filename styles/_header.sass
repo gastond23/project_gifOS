@@ -36,7 +36,7 @@ header
                     align-self: center
                     margin-left: 16px
                     use
-                        fill: #9CAFC3
+                    fill: #9CAFC3
                 .lupavisible
                     visibility: visible
                 input
@@ -91,7 +91,7 @@ header
                         margin-left: -1.5em
                         margin-right: 1em
                         use
-                            fill: #9CAFC3
+                        fill: #9CAFC3
             .menu-activo
                 border-top: 1px solid #9CAFC3
     .trending
@@ -125,3 +125,22 @@ header
                 display: block
                 margin: 0.5em
                 cursor: pointer
+
+@media (min-width: 600px)
+    header
+        .titulos-header
+            h1
+                font-size: 35px
+                max-width: 600px
+                line-height: 50px
+            img
+                max-width: 500px
+            .buscador-container
+                max-width: 550px
+        .trending
+            .container-li
+                max-width: 550px
+                width: 100%
+                li
+                    font-size: 16px
+                    line-height: 25px

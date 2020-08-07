@@ -1,22 +1,62 @@
 footer
-    display: flex
-    flex-direction: column
-    justify-content: space-around
-    align-items: center
+    display: block
     width: 100%
-    height: 140px
-    h3
-        font-family: $font-principal
-        font-size: 15px
-        color: #000000
-        letter-spacing: 0
-        font-weight: 200
-    .icon-container
+    height: 150px
+    .footer-container
         display: flex
-        width: 50%
+        flex-direction: column
         justify-content: space-around
-    p
-        font-family: $font-principal
-        font-size: 15px
-        color: #000000
-        letter-spacing: 0
+        align-items: center
+        width: 100%
+        height: 90%
+        h3
+            font-family: $font-principal
+            font-size: 15px
+            color: #000000
+            letter-spacing: 0
+            font-weight: 200
+            text-align: center
+        .icon-container
+            display: flex
+            width: 50%
+            justify-content: space-around
+        p
+            font-family: $font-principal
+            font-size: 15px
+            color: #000000
+            letter-spacing: 0
+@media (min-width: 600px)
+    footer
+        .footer-container
+            flex-direction: row
+            justify-content: space-between
+            width: 90%
+            h3
+                margin-left: 5%
+                font-size: 13px
+            .icon-container
+                max-width: 100px
+                margin-left: -25%
+                margin-top: 1%
+            p
+                font-size: 13px
+@media (min-width: 700px)
+    footer
+        .footer-container
+            h3
+                margin-left: 5%
+            .icon-container
+                max-width: 150px
+                margin-left: -35%
+@media (min-width: 900px)
+    footer
+        .footer-container
+            h3
+            .icon-container
+                margin-left: -50%
+@media (min-width: 1100px)
+    footer
+        .footer-container
+            h3
+            .icon-container
+                margin-left: -60%
