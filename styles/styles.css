@@ -773,8 +773,6 @@ main .overlay .popup .close-popup {
   height: auto;
   width: auto;
   opacity: 0.5;
-  -webkit-transition: 0.5s ease all;
-  transition: 0.5s ease all;
   margin-right: 15px;
 }
 
