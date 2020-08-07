@@ -732,6 +732,15 @@ main .overlay .popup {
 main .overlay .popup .close-popup {
   margin-left: 100%;
   cursor: pointer;
+  height: auto;
+  width: auto;
+  opacity: 0.5;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+main .overlay .popup .close-popup:hover {
+  opacity: 1;
 }
 
 main .overlay .gif-maximized {
@@ -745,13 +754,17 @@ main .overlay .gif-maximized {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 3em;
   padding-bottom: 3em;
   width: 100%;
 }
 
 main .overlay .gif-maximized img {
-  width: 100%;
+  width: 318px;
+  height: 245px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -794,12 +807,37 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container {
 }
 
 main .overlay .gif-maximized .inline-description .icon-giphy-container a {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
+  width: 36px;
+  height: 36px;
+  margin: 10px;
+  border: 1px solid #9cafc3;
+  border-radius: 6px;
+  opacity: 0.5;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
 }
 
 main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
-  padding: 5px;
+  height: auto;
+  width: auto;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a:hover {
+  opacity: 1;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a:active {
+  border: none;
 }
 
 main .overlay.active {
