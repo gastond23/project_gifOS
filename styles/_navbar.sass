@@ -31,7 +31,7 @@ nav
         text-align: center
         width: 100%
         height: 2em
-        a
+        .item-menu
             text-decoration: none
             font-family: $font-alterna
             color: #ffffff
@@ -58,7 +58,7 @@ nav
     width: 100%
     display: block
 
-@media (min-width: 600px)
+@media (min-width: 650px)
     .menu-burguer
         display: none
     .menu
@@ -75,19 +75,25 @@ nav
         justify-content: space-between
         li
             width: auto
-            a
+            .item-menu
                 color: $color-principal
                 font-size: 13px
                 letter-spacing: 0
                 font-weight: 700
                 width: auto
                 height: 24px
-            a:hover
+            .item-menu:hover
                 border-bottom: 3px solid $color-secundario
-            a:active
+            .item-menu:active
                 color: #9CAFC3
                 border: none
-            #crear_gifo
+            .disabled:hover
+                border-bottom: none
+            .disabled:active
+                color: $color-principal
+            .item-crear-gifo
+                text-decoration: none
+                display: block
                 height: 54px
                 width: 54px
                 border: 1px solid $color-principal
@@ -96,13 +102,28 @@ nav
                 margin-right: 10px
                 text-align: center
                 line-height: 54px
-                font-size: 35px
+                font-size: 30px
                 font-weight: 300
-            #crear_gifo:hover
+                color: $color-principal
+                transition: 0.5s ease all
+            .item-crear-gifo:hover
                 background-color: $color-principal
                 color: #ffffff
-            #crear_gifo:active
+            .item-crear-gifo:active
                 background-color: #9CAFC3
                 border: 1px solid #9CAFC3
+            .disabled-crear
+                background-color: #9CAFC3
+                border: 1px solid #9CAFC3
+                color: #ffffff
+            .disabled-crear:hover
+                background-color: #9CAFC3
+                border: 1px solid #9CAFC3
+                color: #ffffff
+                cursor: default
+            .disabled-crear:active
+                background-color: #9CAFC3
+                border: 1px solid #9CAFC3
+                color: #ffffff
         .span-li
             display: none

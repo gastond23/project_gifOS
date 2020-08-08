@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/crear_gifo.css">
+    <title>Document</title>
+</head>
+
+<body id="body" onresize="cambioDesktop()">
+    <header>
+        <div class="bar"></div>
+        <nav>
+            <a class="link-home" href="index.html">
+                <img id="home_logo" class="logo" src="assets/logo-desktop.svg" alt="Logo GIFOS">
+            </a>
+            <label>
+                <img id="menu_ham" class="menu-burguer" src="assets/burger.svg" alt="Menú hamburguesa">
+            </label>
+            <ul id="menu" class="menu">
+                <li><a class="item-menu" id="modo_nocturno" href="">Modo Nocturno</a></li>
+                <li class="span-li"><span></span></li>
+                <li><a class="item-menu" id="favoritos" href="favoritos.html">Favoritos</a></li>
+                <li class="span-li"><span></span></li>
+                <li><a class="item-menu" id="mis_gifos" href="misgifos.html">Mis GIFOS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="display-section">
+            <div class="camera-container">
+                <div class="cintas-container">
+                    <img src="assets/element_cinta1.svg" alt="Cinta 1">
+                    <img src="assets/element_cinta2.svg" alt="Cinta 2">
+                </div>
+                <div class="camara-luz-container">
+                    <div class="camera">
+                        <img src="assets/element-camara.svg" alt="Camara">
+                    </div>
+                    <div class="luz">
+                        <img src="assets/element-luz-camara.svg" alt="Luz">
+                    </div>
+                </div>
+            </div>
+            <div class="number-container">
+                <div class="video-container">
+                    <div class="create-gifo-container">
+                        <div class="text-gifo-container">
+                            <h2>Aquí podrás crear tus propios <span>GIFOS</span></h2>
+                            <p>¡Crea tu GIFO en sólo 3 pasos!</p>
+                            <p>(sólo necesitas una cámara para grabar un video)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-numbers">
+                    <h4 class="button-number">1</h4>
+                    <h4 class="button-number">2</h4>
+                    <h4 class="button-number">3</h4>
+                </div>
+            </div>
+            <div class="cinta-container">
+                <img src="assets/pelicula.svg" alt="Pelicula">
+            </div>
+        </section>
+        <section class="control-section">
+            <button id="camera-control">COMENZAR</button>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container">
+            <h3>Compartir en:</h3>
+            <div class="icon-container">
+                <a href=""><img id="icon_fb" src="assets/icon_facebook.svg" alt="Facebook"></a>
+                <a href=""><img id="icon_tw" src="assets/icon-twitter.svg" alt="Twitter"></a>
+                <a href=""><img id="icon_in" src="assets/icon_instagram.svg" alt="Instagram"></a>
+            </div>
+            <p id="copyright"></p>
+        </section>
+        <div class="bar"></div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/crear-gifo.js"></script>
+    <script src="js/copyright-date.js"></script>
+    <script src="js/footer.js"></script>
+
+</body>
+
+</html>

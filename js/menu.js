@@ -24,15 +24,14 @@ function slideMenuHaburguesa() {
 
 let menuDesktop = document.getElementById("menu");
 let homeLogo = document.getElementById("home_logo");
+let nuevoLi = document.createElement("li");
+let nuevoLink = document.createElement("a");
 
-var x = window.matchMedia("(min-width: 600px)");
 
-function desktopNavBar(x) {
-    if (x.matches) {
+function cambioDesktop() {
+    if (window.matchMedia("(min-width: 650px)").matches) {
         homeLogo.src = "assets/logo-desktop.svg";
-        let nuevoLi = document.createElement("li");
-        let nuevoLink = document.createElement("a");
-        nuevoLink.classList.add("item-menu");
+        nuevoLink.classList.add("item-crear-gifo");
         nuevoLink.href = "crear_gifo.html";
         nuevoLink.id = "crear_gifo";
         nuevoLink.innerText = "+"
@@ -44,7 +43,13 @@ function desktopNavBar(x) {
             textMayus = textMayus.toUpperCase();
             linksMenu[i].innerText = textMayus;
         }
+    } else {
+        homeLogo.src = "assets/logo-mobile.svg";
+        if (menuDesktop.innerHTML.length > 407) {
+            nuevoLi.removeChild(nuevoLink);
+            menuDesktop.removeChild(nuevoLi);
+        }
     }
 }
-desktopNavBar(x);
 
+cambioDesktop();

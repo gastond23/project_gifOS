@@ -1,0 +1,66 @@
+.display-section
+    display: grid
+    width: 100%
+    height: 75vh
+    grid-template-columns: 1fr 2fr 1fr
+    grid-template-rows: 1fr
+    .camera-container
+        grid-column-start: 1
+        grid-column-end: 2
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        height: 100%
+        .cintas-container
+            width: 100%
+            display: flex
+            justify-content: center
+            align-items: baseline
+            position: absolute
+            margin-top: -15em
+            margin-left: -6em
+        .camara-luz-container
+            width: 100%
+            display: flex
+            align-items: center
+            justify-content: center
+            .camera
+                align-self: flex-end
+            .luz
+                align-self: flex-start
+                img
+                    margin-top: -1.5em
+    .number-container
+        grid-column-start: 2
+        grid-column-end: 3
+        width: 100%
+        height: 100%
+        border: 1px solid $color-principal
+        display: flex
+        flex-direction: column
+        align-items: center
+        .video-container
+            width: 100%
+            height: 100%
+            border: 1px solid red
+            .create-gifo-container
+                height: 90%
+                width: 90%
+                border: 1px solid green
+                margin: auto
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                .text-gifo-container
+                    
+        .icon-numbers
+            height: 3em
+            display: flex
+            width: 30%
+            align-items: center
+            justify-content: space-evenly
+    .cinta-container
+        grid-column-start: 3
+        grid-column-end: 4
