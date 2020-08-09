@@ -193,8 +193,16 @@ function recargaBusqueda(data) {
             let gifElement = valorBusqueda[i];
             let title = document.createElement("h3");
             let user = document.createElement("h4");
+            let contenedorTitulos = document.createElement("div");
+            contenedorTitulos.classList.add("datos-gif");
             let newGifCard = document.createElement("div");
             let newCardOver = document.createElement("div");
+            let contenedorButtons = document.createElement("div");
+            contenedorButtons.classList.add("contenedor-botones");
+            gifId = gifElement.id;
+            contenedorButtons.innerHTML = `<button value="${gifElement.id}" onclick="actualizarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-hover.svg"></button>
+            <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
+            <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
             newCardOver.classList.add("card-mouseover");
             newGifCard.classList.add("gif-card");
             let imgGif = document.createElement("img");
@@ -202,8 +210,10 @@ function recargaBusqueda(data) {
             imgGif.src = gifElement.images.original.url;
             imgGif.alt = gifElement.id;
             newGifCard.appendChild(imgGif);
-            newCardOver.appendChild(user);
-            newCardOver.appendChild(title);
+            contenedorTitulos.appendChild(user);
+            contenedorTitulos.appendChild(title);
+            newCardOver.appendChild(contenedorButtons);
+            newCardOver.appendChild(contenedorTitulos);
             user.innerHTML = gifElement.username;
             title.innerHTML = gifElement.title;
             newGifCard.appendChild(newCardOver);
@@ -215,8 +225,16 @@ function recargaBusqueda(data) {
             let gifElement = valorBusqueda[i];
             let title = document.createElement("h3");
             let user = document.createElement("h4");
+            let contenedorTitulos = document.createElement("div");
+            contenedorTitulos.classList.add("datos-gif");
             let newGifCard = document.createElement("div");
             let newCardOver = document.createElement("div");
+            let contenedorButtons = document.createElement("div");
+            contenedorButtons.classList.add("contenedor-botones");
+            gifId = gifElement.id;
+            contenedorButtons.innerHTML = `<button value="${gifElement.id}" onclick="actualizarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-hover.svg"></button>
+            <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
+            <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
             newCardOver.classList.add("card-mouseover");
             newGifCard.classList.add("gif-card");
             let imgGif = document.createElement("img");
@@ -224,8 +242,10 @@ function recargaBusqueda(data) {
             imgGif.src = gifElement.images.original.url;
             imgGif.alt = gifElement.id;
             newGifCard.appendChild(imgGif);
-            newCardOver.appendChild(user);
-            newCardOver.appendChild(title);
+            contenedorTitulos.appendChild(user);
+            contenedorTitulos.appendChild(title);
+            newCardOver.appendChild(contenedorButtons);
+            newCardOver.appendChild(contenedorTitulos);
             user.innerHTML = gifElement.username;
             title.innerHTML = gifElement.title;
             newGifCard.appendChild(newCardOver);
