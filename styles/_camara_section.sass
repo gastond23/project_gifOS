@@ -48,8 +48,13 @@
             width: 688px
             height: 390px
             border: 1px solid $color-principal
+            .gif.recorder
+                box-sizing: border-box
+                display: block
+                width: 100%
+                height: 100%
             .create-gifo-container
-                margin: 2em auto
+                margin-top: -9.4em
                 height: 370px
                 width: 668px
                 position: relative
@@ -84,6 +89,9 @@
                         text-align: center
                         line-height: 29px
                         margin: auto
+            .no-visible
+                display: none
+                visibility: hidden
         .icon-numbers
             height: 3em
             display: flex
@@ -105,6 +113,9 @@
                 line-height: 32px
                 margin-top: 3.5em
                 margin-bottom: 2em
+            .button-act
+                background-color: $color-principal
+                color: #ffffff
         .bottom-bar
             margin: 2em
             height: 7px
@@ -130,6 +141,7 @@
     align-items: center
     justify-content: center
     button
+        display: block
         height: 50px
         width: 127px
         border: 1px solid $color-principal
@@ -146,3 +158,9 @@
     button:hover
         background-color: $color-principal
         color: #ffffff
+    #camera-grabar
+        display: none
+    #camera-finalizar
+        display: none
+    #gif-upload
+        display: none

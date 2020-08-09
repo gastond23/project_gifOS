@@ -400,8 +400,16 @@ footer .footer-container p {
   border: 1px solid #572EE5;
 }
 
+.display-section .number-container .video-container .gif.recorder {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .display-section .number-container .video-container .create-gifo-container {
-  margin: 2em auto;
+  margin-top: -9.4em;
   height: 370px;
   width: 668px;
   position: relative;
@@ -449,6 +457,11 @@ footer .footer-container p {
   margin: auto;
 }
 
+.display-section .number-container .video-container .no-visible {
+  display: none;
+  visibility: hidden;
+}
+
 .display-section .number-container .icon-numbers {
   height: 3em;
   display: -webkit-box;
@@ -477,6 +490,11 @@ footer .footer-container p {
   line-height: 32px;
   margin-top: 3.5em;
   margin-bottom: 2em;
+}
+
+.display-section .number-container .icon-numbers .button-act {
+  background-color: #572EE5;
+  color: #ffffff;
 }
 
 .display-section .number-container .bottom-bar {
@@ -527,6 +545,7 @@ footer .footer-container p {
 }
 
 .control-section button {
+  display: block;
   height: 50px;
   width: 127px;
   border: 1px solid #572EE5;
@@ -546,4 +565,16 @@ footer .footer-container p {
 .control-section button:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+.control-section #camera-grabar {
+  display: none;
+}
+
+.control-section #camera-finalizar {
+  display: none;
+}
+
+.control-section #gif-upload {
+  display: none;
 }

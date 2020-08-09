@@ -45,6 +45,7 @@
             </div>
             <div class="number-container">
                 <div class="video-container">
+                    <video id="video_gif" class="gif-recorder" src=""></video>
                     <div class="create-gifo-container">
                         <div class="text-gifo-container">
                             <h2>Aquí podrás crear tus propios <span>GIFOS</span></h2>
@@ -65,7 +66,10 @@
             </div>
         </section>
         <section class="control-section">
-            <button id="camera-control">COMENZAR</button>
+            <button id="camera-iniciar">COMENZAR</button>
+            <button id="camera-grabar">GRABAR</button>
+            <button id="camera-finalizar">FINALIZAR</button>
+            <button id="gif-upload">SUBIR GIFO</button>
         </section>
     </main>
     <footer>
@@ -80,6 +84,7 @@
         </section>
         <div class="bar"></div>
     </footer>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/crear-gifo.js"></script>
     <script src="js/copyright-date.js"></script>

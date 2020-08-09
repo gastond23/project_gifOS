@@ -277,6 +277,8 @@ function displayBusquedaError() {
 }
 
 sectorBusqueda.addEventListener("click", function (e) {
+    debugger;
+    console.log(sectorBusqueda);
     gifId = e.target.alt;
     if (gifId != undefined) {
         popUp.classList.add("active");
