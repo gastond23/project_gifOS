@@ -687,6 +687,9 @@ footer .footer-container p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #572EE5;
   z-index: -1;
   opacity: 0.6;
@@ -695,14 +698,42 @@ footer .footer-container p {
   margin-left: -100%;
 }
 
-.busqueda-section .gif-card .card-mouseover h4 {
+.busqueda-section .gif-card .card-mouseover .contenedor-botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 5px;
+}
+
+.busqueda-section .gif-card .card-mouseover .contenedor-botones button {
+  margin: 2px;
+  height: 32px;
+  width: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.busqueda-section .gif-card .card-mouseover .contenedor-botones button:hover {
+  opacity: 1;
+}
+
+.busqueda-section .gif-card .card-mouseover .datos-gif {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.busqueda-section .gif-card .card-mouseover .datos-gif h4 {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: #ffffff;
   z-index: -1;
 }
 
-.busqueda-section .gif-card .card-mouseover h3 {
+.busqueda-section .gif-card .card-mouseover .datos-gif h3 {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: bold;

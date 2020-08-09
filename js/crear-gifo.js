@@ -61,7 +61,6 @@ async function stopRec() {
     buttonUp.style.display = "block";
     pasos[1].classList.remove("button-act");
     pasos[2].classList.add("button-act");
-    recorder.startRecording();
 
     const sleep = m => new Promise(r => setTimeout(r, m));
     await sleep(3000);
@@ -76,6 +75,7 @@ async function stopRec() {
 }
 
 async function uploadGif() {
+    debugger;
     fetch(`https://upload.giphy.com/v1/gifs`, {
         method: "POST",
         body: form

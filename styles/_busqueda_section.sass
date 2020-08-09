@@ -36,23 +36,40 @@
             position: relative
             display: flex
             flex-direction: column
+            justify-content: space-between
             background-color: $color-principal
             z-index: -1
             opacity: 0.6
             height: 100%
             width: 100%
             margin-left: -100%
-            h4
-                font-family: $font-principal
-                font-size: 15px
-                color: #ffffff
-                z-index: -1
-            h3
-                font-family: $font-principal
-                font-size: 16px
-                font-weight: bold
-                color: #ffffff
-                z-index: -1
+            .contenedor-botones
+                display: flex
+                justify-content: flex-end
+                margin: 5px
+                button
+                    margin: 2px
+                    height: 32px
+                    width: 32px
+                    border-radius: 6px
+                    cursor: pointer
+                    border: none
+                button:hover
+                    opacity: 1
+            .datos-gif
+                margin-left: 5px
+                margin-bottom: 5px
+                h4
+                    font-family: $font-principal
+                    font-size: 15px
+                    color: #ffffff
+                    z-index: -1
+                h3
+                    font-family: $font-principal
+                    font-size: 16px
+                    font-weight: bold
+                    color: #ffffff
+                    z-index: -1
     .btn-vermas
         grid-column-start: 1
         grid-column-end: 3
