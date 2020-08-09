@@ -690,9 +690,8 @@ footer .footer-container p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #572EE5;
+  background: rgba(87, 46, 229, 0.6);
   z-index: -1;
-  opacity: 0.6;
   height: 100%;
   width: 100%;
   margin-left: -100%;
@@ -715,6 +714,7 @@ footer .footer-container p {
   border-radius: 6px;
   cursor: pointer;
   border: none;
+  opacity: 0.6;
 }
 
 .busqueda-section .gif-card .card-mouseover .contenedor-botones button:hover {

@@ -286,15 +286,16 @@ function displayBusquedaError() {
     console.log(sectorBusqueda);
 }
 
-sectorBusqueda.addEventListener("click", function (e) {
-    debugger;
-    console.log(sectorBusqueda);
-    gifId = e.target.alt;
-    if (gifId != undefined) {
-        popUp.classList.add("active");
-        locateGif(gifId);
-    }
-})
+if (window.matchMedia("(max-width: 500px)").matches) {
+    sectorBusqueda.addEventListener("click", function (e) {
+        debugger;
+        console.log(sectorBusqueda);
+        gifId = e.target.alt;
+        if (gifId != undefined) {
+            locateGif(gifId);
+        }
+    })
+}
 
 carrouselContenedor.addEventListener("click", function (e) {
     gifId = e.target.alt;
@@ -306,6 +307,7 @@ carrouselContenedor.addEventListener("click", function (e) {
 
 function locateGif(gifId) {
     debugger;
+    console.log(gifId);
     return fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
@@ -317,6 +319,7 @@ function locateGif(gifId) {
 }
 
 function maximizarGif(data) {
+    popUp.classList.add("active");
     gifId = "";
     datosGiphyMax = data.data;
     userName.innerText = datosGiphyMax.username;
@@ -325,7 +328,6 @@ function maximizarGif(data) {
     imgGiphy.src = datosGiphyMax.images.original.url;
     download.download = datosGiphyMax.title;
     download.href = datosGiphyMax.images.original.url;
-    console.log(download);
     document.getElementById("body").classList.add("no-scroll");
 }
 
@@ -341,11 +343,12 @@ closePopUp.addEventListener("click", () => {
 
 like.addEventListener("click", function (e) {
     e.preventDefault();
-    actualizarFavoritos();
+    actualizarFavoritos(e.target.alt);
 });
 
-function actualizarFavoritos() {
-    let gifId = imgGiphy.alt;//Tomo el ID del GIF
+function actualizarFavoritos(gifId) {
+    debugger;
+    console.log(gifId);
     let favoritosTexto = localStorage.getItem("listafavoritosGifos");//Leo el localStorage si no hay gif favoritos
     if (favoritosTexto == null) { //Si el localstorage esta vacio, declaro vacio el array
         likesFavoritos = [];
