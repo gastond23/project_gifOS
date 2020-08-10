@@ -37,6 +37,26 @@ main
                 scroll-snap-align: center
                 border: 10px solid rgba(0, 0, 0, 0)
                 cursor: pointer
+            .botones
+                font-size: 24px
+                align-self: center
+                display: none
+                position: absolute
+                height: 40px
+                width: 40px
+                border: 1px solid $color-principal
+                cursor: pointer
+                color: $color-principal
+                text-align: center
+                line-height: 35px
+                transition: 0.5s ease all
+            .botones:hover
+                background-color: $color-principal
+                color: #ffffff
+            .adelante
+                right: 1em
+            .atras
+                left: 1em
 
 @media (min-width: 600px)
     main
@@ -51,11 +71,17 @@ main
             .container-carrousel
                 margin-top: 4em
                 max-width: 500px
-                width: 95%
-                height: 300px
+                width: 100%
+                height: auto
+                overflow: hidden
                 .img-gif-slider
                     height: 275px
                     width: 357px
+                    object-fit: cover
+                    margin: 1em
+                    border: none
+                .botones
+                    display: block
 @media (min-width: 700px)
     main
         .trending-gifos

@@ -27,4 +27,5 @@ function carrouselGif(data) {
         carrouselContenedor.appendChild(imgTrenfGif);
     }
     console.log(carrouselContenedor);
+    console.log(imgTrenfGif);
 }

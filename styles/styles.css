@@ -487,6 +487,37 @@ main .trending-gifos .container-carrousel .img-gif-slider {
   cursor: pointer;
 }
 
+main .trending-gifos .container-carrousel .botones {
+  font-size: 24px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #572EE5;
+  cursor: pointer;
+  color: #572EE5;
+  text-align: center;
+  line-height: 35px;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+main .trending-gifos .container-carrousel .botones:hover {
+  background-color: #572EE5;
+  color: #ffffff;
+}
+
+main .trending-gifos .container-carrousel .adelante {
+  right: 1em;
+}
+
+main .trending-gifos .container-carrousel .atras {
+  left: 1em;
+}
+
 @media (min-width: 600px) {
   main .trending-gifos {
     height: 640px;
@@ -502,12 +533,20 @@ main .trending-gifos .container-carrousel .img-gif-slider {
   main .trending-gifos .container-carrousel {
     margin-top: 4em;
     max-width: 500px;
-    width: 95%;
-    height: 300px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
   }
   main .trending-gifos .container-carrousel .img-gif-slider {
     height: 275px;
     width: 357px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 1em;
+    border: none;
+  }
+  main .trending-gifos .container-carrousel .botones {
+    display: block;
   }
 }
 
@@ -715,6 +754,10 @@ footer .footer-container p {
   cursor: pointer;
   border: none;
   opacity: 0.6;
+}
+
+.busqueda-section .gif-card .card-mouseover .contenedor-botones button img {
+  margin: auto;
 }
 
 .busqueda-section .gif-card .card-mouseover .contenedor-botones button:hover {
