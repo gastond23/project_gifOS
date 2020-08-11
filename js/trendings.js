@@ -26,13 +26,10 @@ function carrouselGif(data) {
         imgTrenfGif.classList.add("img-gif-slider");
         carrouselContenedor.appendChild(imgTrenfGif);
     }
-    console.log(carrouselContenedor);
-    console.log(imgTrenfGif);
     displayImgTrendingsDesktop(count);
 }
 
 function displayImgTrendingsDesktop(count) {
-    console.log(count);
     let imgTrendigns = document.getElementsByClassName("img-gif-slider");
     if (window.matchMedia("(min-width: 600px)").matches) {
         if (count > (imgTrendigns.length - 3)) { count = 0 }
@@ -40,7 +37,6 @@ function displayImgTrendingsDesktop(count) {
         for (let i = 0; i < imgTrendigns.length; i++) {
             imgTrendigns[i].style.display = "none";
         }
-        console.log(count);
         imgTrendigns[count].style.display = "block";
         count++
         imgTrendigns[count].style.display = "block";

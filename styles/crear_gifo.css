@@ -139,6 +139,9 @@ nav label {
     color: #9CAFC3;
     border: none;
   }
+  .menu li .disabled {
+    color: #9CAFC3;
+  }
   .menu li .disabled:hover {
     border-bottom: none;
   }
