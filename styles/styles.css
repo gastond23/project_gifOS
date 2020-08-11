@@ -804,6 +804,8 @@ footer .footer-container p {
   margin-bottom: 2em;
   margin-left: auto;
   margin-right: auto;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
 }
 
 .busqueda-section .btn-vermas:focus {
@@ -1003,3 +1005,4 @@ main .overlay.active {
     height: 385px;
   }
 }
+/*# sourceMappingURL=styles.css.map */
