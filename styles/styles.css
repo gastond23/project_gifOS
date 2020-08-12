@@ -994,6 +994,41 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container a:active 
   border: none;
 }
 
+main .overlay .gif-maximized .botones {
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #ffffff;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #572EE5;
+  cursor: pointer;
+  color: #572EE5;
+  top: 45vh;
+  text-align: center;
+  line-height: 35px;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+main .overlay .gif-maximized .botones:hover {
+  background-color: #572EE5;
+  color: #ffffff;
+}
+
+main .overlay .gif-maximized .adelante {
+  right: 5%;
+}
+
+main .overlay .gif-maximized .atras {
+  left: 5%;
+}
+
 main .overlay.active {
   visibility: visible;
 }
@@ -1001,6 +1036,9 @@ main .overlay.active {
 @media (min-width: 600px) {
   main .overlay .popup .close-popup {
     margin-right: 0;
+  }
+  main .overlay .gif-maximized .botones {
+    display: block;
   }
   main .overlay .gif-maximized img {
     width: 480px;

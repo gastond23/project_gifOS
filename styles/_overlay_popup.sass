@@ -74,6 +74,30 @@ main
                         opacity: 1
                     a:active
                         border: none
+            .botones
+                font-size: 24px
+                text-decoration: none
+                font-weight: 700
+                background-color: #ffffff
+                align-self: center
+                display: none
+                position: absolute
+                height: 40px
+                width: 40px
+                border: 1px solid $color-principal
+                cursor: pointer
+                color: $color-principal
+                top: 45vh
+                text-align: center
+                line-height: 35px
+                transition: 0.5s ease all
+            .botones:hover
+                background-color: $color-principal
+                color: #ffffff
+            .adelante
+                right: 5%
+            .atras
+                left: 5%
     .overlay.active
         visibility: visible
 
@@ -84,6 +108,8 @@ main
                 .close-popup
                     margin-right: 0
             .gif-maximized
+                .botones
+                    display: block
                 img
                     width: 480px
                     height: 270px
