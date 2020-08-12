@@ -417,8 +417,8 @@ function displayImgTrendingsDesktop(count) {
     console.log(count);
     let imgTrendigns = document.getElementsByClassName("img-gif-slider");
     if (window.matchMedia("(min-width: 600px)").matches) {
-        if (count > (imgTrendigns.length - 3)) { count = 0 }
-        if (count < 0) { count = (imgTrendigns.length - 3) }
+        //if (count > (imgTrendigns.length - 3)) { count = 0 }
+        //if (count < 0) { count = (imgTrendigns.length - 3) }
         for (let i = 0; i < imgTrendigns.length; i++) {
             imgTrendigns[i].style.display = "none";
         }
