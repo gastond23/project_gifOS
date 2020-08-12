@@ -22,6 +22,7 @@ let lupaOculta = document.getElementById("lupa_oculta");
 let likesFavoritos = [];
 let listaTrending = document.getElementById("trendings_sug");
 let count = 0;
+let estadoLupa = true;
 
 
 //Declaracion de variables para funcionamiento del buscador
@@ -38,6 +39,7 @@ let listadoSearch = document.getElementById("lista_search");
 //Funcion busqueda, capta el valor del input del dom e inserta los <li> mostrando los valores similares en GIPHY
 function busqueda() {
     let buscar = search.value;
+    estadoLupa = false;
     //Si en el input no hay nada escrito deja vacio el <ul> y quita la clase menu-activo para no modificar el DOM, si no realiza la busqueda
     if (buscar.length > 0) {
         return fetch(`https://api.giphy.com/v1/tags/related/${buscar}?api_key=${apiKey}&limit=4&rating=g`)
@@ -81,6 +83,7 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
     imgLupa.src = "assets/icon-search.svg";
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
+    estadoLupa = true;
 })
 
 //Llamado de funcion desde un click en lupa o enter
@@ -93,7 +96,16 @@ document.getElementById("buscador").addEventListener("keyup", function (e) {
 });
 
 document.getElementById("lupa").addEventListener("click", () => {
-    getBusquedaGiphy();
+    if (estadoLupa == true) {
+        getBusquedaGiphy();
+    } else {
+        search.value = "";
+        listadoSearch.innerHTML = "";
+        lupaOculta.classList.remove("lupavisible");
+        listadoSearch.classList.remove("menu-activo");
+        imgLupa.src = "assets/icon-search.svg";
+        estadoLupa = true;
+    }
 });
 
 function getBusquedaGiphy(ultimaBusqueda) {
@@ -331,10 +343,30 @@ function locateGif(gifId) {
         })
 }
 
+function slideMaximizedGif(n) {
+    let gifList = document.getElementsByClassName("gif-img");
+    let position;
+    let idSearch = imgGiphy.alt;
+    for (let i = 0; i < gifList.length; i++) {
+        idSearch = gifList[i].alt;
+        if (idSearch == datosGiphyMax.id) {
+            position = i + n;
+        }
+    }
+    if (position < 0) {
+        position = gifList.length + position;
+    }
+    if (position >= gifList.length) {
+        position = 0;
+    }
+    gifId = gifList[position].alt;
+    locateGif(gifId);
+}
+
 function maximizarGif(data) {
-    popUp.classList.add("active");
     gifId = "";
     datosGiphyMax = data.data;
+    popUp.classList.add("active");
     userName.innerText = datosGiphyMax.username;
     giphyTitle.innerText = datosGiphyMax.title;
     imgGiphy.alt = datosGiphyMax.id;

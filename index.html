@@ -55,7 +55,13 @@
             <div class="popup">
                 <img class="close-popup" id="close_popup" src="assets/button-close.svg" alt="Close">
                 <section class="gif-maximized">
+                    <button onclick="slideMaximizedGif(-1)" class="atras botones">
+                        &#60
+                    </button>
                     <img id="giphy_imagen" src="#" alt="#">
+                    <button onclick="slideMaximizedGif(+1)" class="adelante botones">
+                        &#62
+                    </button>
                     <div class="inline-description">
                         <div class="text-container">
                             <h3 id="user_giphy_title">User</h3>
@@ -75,7 +81,7 @@
             <p>Mira los últimos GIFOS de nuestra comunidad.</p>
             <div id="container_gif" class="container-carrousel">
                 <button onclick="plusSlides(-1)" class="atras botones">
-                &#60
+                    &#60
                 </button>
                 <button onclick="plusSlides(1)" class="adelante botones">
                     &#62

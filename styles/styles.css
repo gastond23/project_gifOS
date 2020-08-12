@@ -403,6 +403,12 @@ header .trending .container-li li {
   display: block;
   margin: 0.5em;
   cursor: pointer;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+header .trending .container-li li:hover {
+  color: #50E3C2;
 }
 
 @media (min-width: 600px) {
@@ -1011,4 +1017,3 @@ main .overlay.active {
     height: 385px;
   }
 }
-/*# sourceMappingURL=styles.css.map */
