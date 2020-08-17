@@ -246,7 +246,91 @@ main .trending-gifos .container-carrousel {
       scroll-snap-type: x mandatory;
 }
 
-main .trending-gifos .container-carrousel .img-gif-slider {
+main .trending-gifos .container-carrousel .trending-card-slider {
+  height: 250px;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .trending-overlay {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 230px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 27%;
+  background: rgba(87, 46, 229, 0.6);
+  visibility: hidden;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .trending-overlay .trend-btn-container {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .trending-overlay .trend-btn-container button {
+  width: 32px;
+  height: 100%;
+  margin: 3px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  opacity: 0.6;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .trending-overlay .trend-btn-container button:hover {
+  opacity: 1;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .trending-overlay .container-trend-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 40%;
+  margin-left: 5px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+}
+
+main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
   display: block;
   height: 100%;
   width: 100%;
@@ -255,6 +339,7 @@ main .trending-gifos .container-carrousel .img-gif-slider {
   scroll-snap-align: center;
   border: 10px solid rgba(0, 0, 0, 0);
   cursor: pointer;
+  margin: auto;
 }
 
 main .trending-gifos .container-carrousel .botones {
@@ -332,6 +417,9 @@ main .trending-gifos .container-carrousel .atras {
 @media (min-width: 850px) {
   main .trending-gifos .container-carrousel {
     max-width: 800px;
+  }
+  main .trending-gifos .container-carrousel .trending-card-slider:hover .trending-overlay {
+    visibility: visible;
   }
 }
 
