@@ -241,7 +241,6 @@ main .trending-gifos .container-carrousel {
   margin: auto;
   height: 275px;
   width: 100%;
-  max-width: 400px;
   overflow-x: scroll;
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
@@ -378,7 +377,7 @@ main .trending-gifos .container-carrousel .atras {
 
 @media (min-width: 600px) {
   main .trending-gifos {
-    height: 640px;
+    height: auto;
   }
   main .trending-gifos h2 {
     font-size: 30px;
@@ -388,35 +387,26 @@ main .trending-gifos .container-carrousel .atras {
     font-size: 18px;
     margin-bottom: 1em;
   }
-  main .trending-gifos .container-carrousel {
-    margin-top: 4em;
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
-    height: 275px;
-    width: 357px;
-    padding: 0;
-  }
-  main .trending-gifos .container-carrousel .botones {
-    display: block;
-  }
 }
 
 @media (min-width: 700px) {
   main .trending-gifos .container-carrousel {
     max-width: 650px;
+    width: 100%;
+    height: auto;
+  }
+  main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
+    height: 275px;
+    width: 357px;
   }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 950px) {
   main .trending-gifos .container-carrousel {
-    max-width: 800px;
+    max-width: 1100px;
+  }
+  main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
+    padding: 0;
   }
   main .trending-gifos .container-carrousel .trending-card-slider:hover .trending-overlay {
     visibility: visible;
@@ -424,11 +414,8 @@ main .trending-gifos .container-carrousel .atras {
     display: -ms-flexbox;
     display: flex;
   }
-}
-
-@media (min-width: 1100px) {
-  main .trending-gifos .container-carrousel {
-    max-width: 1100px;
+  main .trending-gifos .container-carrousel .botones {
+    display: block;
   }
 }
 
@@ -456,7 +443,25 @@ footer .footer-container {
   height: 90%;
 }
 
-footer .footer-container h3 {
+footer .footer-container .share-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+  height: 50%;
+}
+
+footer .footer-container .share-container h3 {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: #000000;
@@ -465,7 +470,7 @@ footer .footer-container h3 {
   text-align: center;
 }
 
-footer .footer-container .icon-container {
+footer .footer-container .share-container .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,39 +497,16 @@ footer .footer-container p {
             justify-content: space-between;
     width: 90%;
   }
-  footer .footer-container h3 {
-    margin-left: 5%;
-    font-size: 13px;
-  }
-  footer .footer-container .icon-container {
-    max-width: 100px;
-    margin-left: -25%;
-    margin-top: 1%;
+  footer .footer-container .share-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 25%;
+    margin-left: 10%;
   }
   footer .footer-container p {
     font-size: 13px;
-  }
-}
-
-@media (min-width: 700px) {
-  footer .footer-container h3 {
-    margin-left: 5%;
-  }
-  footer .footer-container .icon-container {
-    max-width: 150px;
-    margin-left: -35%;
-  }
-}
-
-@media (min-width: 900px) {
-  footer .footer-container .icon-container {
-    margin-left: -50%;
-  }
-}
-
-@media (min-width: 1100px) {
-  footer .footer-container .icon-container {
-    margin-left: -60%;
   }
 }
 

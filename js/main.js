@@ -353,6 +353,15 @@ function slideMaximizedGif(n) {
             position = i + n;
         }
     }
+    if (position === undefined) {
+        gifList = document.getElementsByClassName("img-gif-slider");
+        for (let i = 0; i < gifList.length; i++) {
+            idSearch = gifList[i].alt;
+            if (idSearch == datosGiphyMax.id) {
+                position = i + n;
+            }
+        }
+    }
     if (position < 0) {
         position = gifList.length + position;
     }
