@@ -3,8 +3,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .no-scroll {
@@ -13,12 +12,8 @@
 
 /** NAVBAR **/
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 nav label {
@@ -41,10 +36,7 @@ nav label {
   display: none;
   position: fixed;
   z-index: 100;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 100%;
   height: 135vh;
   overflow: hidden;
@@ -69,7 +61,6 @@ nav label {
   font-weight: bold;
   line-height: 30px;
   display: block;
-  -webkit-transition: 0.5s ease all;
   transition: 0.5s ease all;
 }
 
@@ -102,24 +93,16 @@ nav label {
   }
   .menu {
     margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     position: relative;
     background-color: #ffffff;
     width: 60%;
     height: 50%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     z-index: 0;
     overflow: visible;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   .menu li {
     width: auto;
@@ -162,7 +145,6 @@ nav label {
     font-size: 30px;
     font-weight: 300;
     color: #572EE5;
-    -webkit-transition: 0.5s ease all;
     transition: 0.5s ease all;
   }
   .menu li .item-crear-gifo:hover {
@@ -202,18 +184,10 @@ footer {
 }
 
 footer .footer-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 90%;
 }
@@ -228,12 +202,9 @@ footer .footer-container h3 {
 }
 
 footer .footer-container .icon-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 50%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 footer .footer-container p {
@@ -245,13 +216,8 @@ footer .footer-container p {
 
 @media (min-width: 600px) {
   footer .footer-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
     width: 90%;
   }
   footer .footer-container h3 {
@@ -293,47 +259,28 @@ footer .footer-container p {
 /** CAMARA-SECTION **/
 .display-section {
   margin-top: 5em;
-  display: -ms-grid;
   display: grid;
   width: 100%;
   height: 500px;
-  -ms-grid-columns: 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .display-section .camera-container {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   grid-column-end: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
 }
 
 .display-section .camera-container .cintas-container {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  justify-content: center;
+  align-items: baseline;
   position: absolute;
   margin-top: -15em;
   margin-left: -6em;
@@ -341,25 +288,17 @@ footer .footer-container p {
 
 .display-section .camera-container .camara-luz-container {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .display-section .camera-container .camara-luz-container .camera {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .display-section .camera-container .camara-luz-container .luz {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .display-section .camera-container .camara-luz-container .luz img {
@@ -367,45 +306,27 @@ footer .footer-container p {
 }
 
 .display-section .number-container {
-  -ms-grid-column: 2;
-      grid-column-start: 2;
+  grid-column-start: 2;
   grid-column-end: 3;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .display-section .number-container .video-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 688px;
   height: 390px;
   border: 1px solid #572EE5;
 }
 
 .display-section .number-container .video-container .gif.recorder {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   width: 100%;
   height: 100%;
@@ -416,8 +337,7 @@ footer .footer-container p {
   height: 370px;
   width: 668px;
   position: relative;
-  -webkit-box-shadow: 0 0 0 4px #ffffff inset;
-          box-shadow: 0 0 0 4px #ffffff inset;
+  box-shadow: 0 0 0 4px #ffffff inset;
   background-color: #ffffff;
 }
 
@@ -467,16 +387,10 @@ footer .footer-container p {
 
 .display-section .number-container .icon-numbers {
   height: 3em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 30%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .display-section .number-container .icon-numbers .button-number {
@@ -511,15 +425,9 @@ footer .footer-container p {
 }
 
 .display-section .cinta-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .display-section .cinta-container img {
@@ -528,23 +436,16 @@ footer .footer-container p {
 }
 
 .display-section .cinta-container {
-  -ms-grid-column: 3;
-      grid-column-start: 3;
+  grid-column-start: 3;
   grid-column-end: 4;
 }
 
 .control-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 22vh;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .control-section button {
@@ -560,7 +461,6 @@ footer .footer-container p {
   letter-spacing: 0;
   text-align: center;
   font-weight: 600;
-  -webkit-transition: 0.5s ease all;
   transition: 0.5s ease all;
   cursor: pointer;
 }
@@ -581,3 +481,4 @@ footer .footer-container p {
 .control-section #gif-upload {
   display: none;
 }
+/*# sourceMappingURL=crear_gifo.css.map */
