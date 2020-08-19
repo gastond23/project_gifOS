@@ -7,6 +7,7 @@ main
     .trending-gifos
         display: block
         height: 400px
+        width: 100%
         h2
             font-family: $font-alterna
             font-size: 20px
@@ -24,25 +25,27 @@ main
         .container-carrousel
             display: flex
             margin: auto
-            max-width: 400px
-            height: 250px
+            height: 275px
             width: 100%
+            max-width: 400px
             overflow-x: scroll
             scroll-snap-type: x mandatory
             .trending-card-slider
-                height: 250px
+                display: flex
+                height: 100%
                 width: 100%
                 align-items: center
                 justify-content: center
                 .trending-overlay
                     position: absolute
-                    display: flex
+                    display: none
                     flex-direction: column
                     justify-content: space-between
-                    height: 230px
-                    width: 27%
+                    height: 275px
+                    width: 357px
                     background: rgba($color-principal, 0.6)
                     visibility: hidden
+                    padding: 0
                     .trend-btn-container
                         align-self: flex-end
                         margin: 2%
@@ -74,13 +77,12 @@ main
                         color: #ffffff
                 .img-gif-slider
                     display: block
-                    height: 100%
-                    width: 100%
                     object-fit: cover
+                    height: 100%
+                    width: 357px
                     scroll-snap-align: center
-                    border: 10px solid rgba(0, 0, 0, 0)
                     cursor: pointer
-                    margin: auto
+                    padding: 1em
             .botones
                 font-size: 24px
                 text-decoration: none
@@ -121,12 +123,12 @@ main
                 width: 100%
                 height: auto
                 overflow: hidden
-                .img-gif-slider
-                    height: 275px
-                    width: 357px
-                    object-fit: cover
-                    margin: 1em
-                    border: none
+                justify-content: space-between
+                .trending-card-slider
+                    .img-gif-slider
+                        height: 275px
+                        width: 357px
+                        padding: 0
                 .botones
                     display: block
 @media (min-width: 700px)
@@ -142,6 +144,7 @@ main
                 .trending-card-slider:hover
                     .trending-overlay
                         visibility: visible
+                        display: flex
 @media (min-width: 1100px)
     main
         .trending-gifos
