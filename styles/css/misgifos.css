@@ -360,6 +360,7 @@ main .trending-gifos .container-carrousel .botones {
   line-height: 35px;
   -webkit-transition: 0.5s ease all;
   transition: 0.5s ease all;
+  z-index: 90;
 }
 
 main .trending-gifos .container-carrousel .botones:hover {

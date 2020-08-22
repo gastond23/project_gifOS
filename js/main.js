@@ -198,72 +198,40 @@ function verMas() {
 function recargaBusqueda(data) {
     sectorBusqueda.removeChild(btnVerMas);
     valorBusqueda = data.data;
-    if (valorBusqueda.length <= limiteBusqueda) {
-        for (let i = 0; i < valorBusqueda.length; i++) {
-            let gifElement = valorBusqueda[i];
-            let title = document.createElement("h3");
-            let user = document.createElement("h4");
-            let contenedorTitulos = document.createElement("div");
-            contenedorTitulos.classList.add("datos-gif");
-            let newGifCard = document.createElement("div");
-            let newCardOver = document.createElement("div");
-            let contenedorButtons = document.createElement("div");
-            contenedorButtons.classList.add("contenedor-botones");
-            gifId = gifElement.id;
-            contenedorButtons.innerHTML = `<button value="${gifElement.id}" onclick="actualizarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-hover.svg"></button>
+    for (let i = 0; i < valorBusqueda.length; i++) {
+        let gifElement = valorBusqueda[i];
+        let title = document.createElement("h3");
+        let user = document.createElement("h4");
+        let contenedorTitulos = document.createElement("div");
+        contenedorTitulos.classList.add("datos-gif");
+        let newGifCard = document.createElement("div");
+        let newCardOver = document.createElement("div");
+        let contenedorButtons = document.createElement("div");
+        contenedorButtons.classList.add("contenedor-botones");
+        gifId = gifElement.id;
+        contenedorButtons.innerHTML = `<button value="${gifElement.id}" onclick="actualizarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-hover.svg"></button>
             <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
             <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
-            newCardOver.classList.add("card-mouseover");
-            newGifCard.classList.add("gif-card");
-            let imgGif = document.createElement("img");
-            imgGif.classList.add("gif-img");
-            imgGif.src = gifElement.images.original.url;
-            imgGif.alt = gifElement.id;
-            newGifCard.appendChild(imgGif);
-            contenedorTitulos.appendChild(user);
-            contenedorTitulos.appendChild(title);
-            newCardOver.appendChild(contenedorButtons);
-            newCardOver.appendChild(contenedorTitulos);
-            user.innerHTML = gifElement.username;
-            title.innerHTML = gifElement.title;
-            newGifCard.appendChild(newCardOver);
-            sectorBusqueda.appendChild(newGifCard);
-        }
+        newCardOver.classList.add("card-mouseover");
+        newGifCard.classList.add("gif-card");
+        let imgGif = document.createElement("img");
+        imgGif.classList.add("gif-img");
+        imgGif.src = gifElement.images.original.url;
+        imgGif.alt = gifElement.id;
+        newGifCard.appendChild(imgGif);
+        contenedorTitulos.appendChild(user);
+        contenedorTitulos.appendChild(title);
+        newCardOver.appendChild(contenedorButtons);
+        newCardOver.appendChild(contenedorTitulos);
+        user.innerHTML = gifElement.username;
+        title.innerHTML = gifElement.title;
+        newGifCard.appendChild(newCardOver);
+        sectorBusqueda.appendChild(newGifCard);
+    }
+    if (valorBusqueda.length == limiteBusqueda) {
         sectorBusqueda.appendChild(btnVerMas);
-    } else {
-        for (let i = 0; i < valorBusqueda.length; i++) {
-            let gifElement = valorBusqueda[i];
-            let title = document.createElement("h3");
-            let user = document.createElement("h4");
-            let contenedorTitulos = document.createElement("div");
-            contenedorTitulos.classList.add("datos-gif");
-            let newGifCard = document.createElement("div");
-            let newCardOver = document.createElement("div");
-            let contenedorButtons = document.createElement("div");
-            contenedorButtons.classList.add("contenedor-botones");
-            gifId = gifElement.id;
-            contenedorButtons.innerHTML = `<button value="${gifElement.id}" onclick="actualizarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-hover.svg"></button>
-            <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
-            <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
-            newCardOver.classList.add("card-mouseover");
-            newGifCard.classList.add("gif-card");
-            let imgGif = document.createElement("img");
-            imgGif.classList.add("gif-img");
-            imgGif.src = gifElement.images.original.url;
-            imgGif.alt = gifElement.id;
-            newGifCard.appendChild(imgGif);
-            contenedorTitulos.appendChild(user);
-            contenedorTitulos.appendChild(title);
-            newCardOver.appendChild(contenedorButtons);
-            newCardOver.appendChild(contenedorTitulos);
-            user.innerHTML = gifElement.username;
-            title.innerHTML = gifElement.title;
-            newGifCard.appendChild(newCardOver);
-            sectorBusqueda.appendChild(newGifCard);
-        }
     }
 }
-
 
 function trendingsSug(url) {
     return fetch(url)
@@ -332,6 +300,7 @@ if (window.matchMedia("(max-width: 500px)").matches) {
         }
     })
 }
+
 function locateGif(gifId) {
     return fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=${apiKey}`)
         .then(response => response.json())

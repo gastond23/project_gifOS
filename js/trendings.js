@@ -77,3 +77,12 @@ function plusSlides(n) {
     }
     displayImgTrendingsDesktop(count);
 }
+if (window.matchMedia("(max-width: 500px)").matches) {
+    carrouselContenedor.addEventListener("click", function (e) {
+        gifId = e.target.alt;
+        if (gifId != undefined) {
+            popUp.classList.add("active");
+            locateGif(gifId);
+        }
+    })
+}
