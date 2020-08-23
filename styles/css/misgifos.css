@@ -211,9 +211,21 @@ main {
 }
 
 main .trending-gifos {
-  display: block;
-  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
+  padding-bottom: 8vh;
 }
 
 main .trending-gifos h2 {
@@ -395,6 +407,7 @@ main .trending-gifos .container-carrousel .atras {
     max-width: 650px;
     width: 100%;
     height: auto;
+    overflow: hidden;
   }
   main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
     height: 275px;

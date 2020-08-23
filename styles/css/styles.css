@@ -356,7 +356,7 @@ header .titulos-header .buscador-container .menu-activo {
 
 header .trending {
   width: 80%;
-  height: auto;
+  height: 20vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -391,7 +391,7 @@ header .trending .container-li {
       -ms-flex-pack: center;
           justify-content: center;
   list-style: none;
-  width: 80%;
+  width: 60%;
   height: auto;
   margin: auto;
 }
@@ -451,9 +451,21 @@ main {
 }
 
 main .trending-gifos {
-  display: block;
-  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
+  padding-bottom: 8vh;
 }
 
 main .trending-gifos h2 {
@@ -635,6 +647,7 @@ main .trending-gifos .container-carrousel .atras {
     max-width: 650px;
     width: 100%;
     height: auto;
+    overflow: hidden;
   }
   main .trending-gifos .container-carrousel .trending-card-slider .img-gif-slider {
     height: 275px;
@@ -1053,8 +1066,8 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container a {
   border: 1px solid #9cafc3;
   border-radius: 6px;
   opacity: 0.5;
-  -webkit-transition: 0.5s ease all;
-  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
 }
 
 main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
@@ -1088,8 +1101,8 @@ main .overlay .gif-maximized .botones {
   top: 45vh;
   text-align: center;
   line-height: 35px;
-  -webkit-transition: 0.5s ease all;
-  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease color;
+  transition: 0.5s ease color;
 }
 
 main .overlay .gif-maximized .botones:hover {

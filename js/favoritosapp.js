@@ -17,10 +17,12 @@ let giphyTitle = document.getElementById("giphy_title");
 let imgGiphy = document.getElementById("giphy_imagen");
 let like = document.getElementById("like_favoritos");
 let download = document.getElementById("gif_download");
+let dataFavoritos;
 
 getFavoritos();
 
 function getFavoritos() {
+    favoritosEmpty.classList.remove("activo");
     const listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
     if (listadoFavoritosTexto == '[]' || listadoFavoritosTexto == null) {
         displayNoFavoritos();
@@ -28,7 +30,9 @@ function getFavoritos() {
         listadoFavoritos = JSON.parse(listadoFavoritosTexto);
         let uniqueSet = new Set(listadoFavoritos);
         let uniqueArray = Array.from(uniqueSet);
-        let url = `https://api.giphy.com/v1/gifs?ids=${uniqueArray.toString()}&api_key=${apiKey}&limit=${limit}&offset=${offset}`;
+        listadoFavoritos = uniqueArray;
+        let url = `https://api.giphy.com/v1/gifs?ids=${listadoFavoritos.toString()}&api_key=${apiKey}`;
+        console.log(url);
         fetchFavoritos(url);
     }
 }
@@ -46,48 +50,91 @@ function fetchFavoritos(url) {
 
 function muestraFavoritos(data) {
     let likeGifs = data.data;
+    dataFavoritos = data;
     if (likeGifs.length == 0) {
         displayNoFavoritos();
     } else {
-        for (let i = 0; i < likeGifs.length; i++) {
-            let gifElement = likeGifs[i];
-            let title = document.createElement("h3");
-            let user = document.createElement("h4");
-            let contenedorTitulos = document.createElement("div");
-            contenedorTitulos.classList.add("datos-gif");
-            let newGifCard = document.createElement("div");
-            let newCardOver = document.createElement("div");
-            let contenedorButtons = document.createElement("div");
-            contenedorButtons.classList.add("contenedor-botones");
-            gifId = gifElement.id;
-            contenedorButtons.innerHTML = `<button class="btn-fav-active" value="${gifElement.id}" onclick="eliminarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-active.svg"></button>
+        if (likeGifs.length < limit) {
+            for (let i = 0; i < likeGifs.length; i++) {
+                let gifElement = likeGifs[i];
+                let title = document.createElement("h3");
+                let user = document.createElement("h4");
+                let contenedorTitulos = document.createElement("div");
+                contenedorTitulos.classList.add("datos-gif");
+                let newGifCard = document.createElement("div");
+                let newCardOver = document.createElement("div");
+                let contenedorButtons = document.createElement("div");
+                contenedorButtons.classList.add("contenedor-botones");
+                gifId = gifElement.id;
+                contenedorButtons.innerHTML = `<button class="btn-fav-active" value="${gifElement.id}" onclick="eliminarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-active.svg"></button>
+                <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
+                <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
+                newCardOver.classList.add("card-mouseover");
+                newGifCard.classList.add("gif-card");
+                let imgGif = document.createElement("img");
+                imgGif.classList.add("gif-img");
+                imgGif.src = gifElement.images.original.url;
+                imgGif.alt = gifElement.id;
+                newGifCard.appendChild(imgGif);
+                contenedorTitulos.appendChild(user);
+                contenedorTitulos.appendChild(title);
+                newCardOver.appendChild(contenedorButtons);
+                newCardOver.appendChild(contenedorTitulos);
+                user.innerHTML = gifElement.username;
+                title.innerHTML = gifElement.title;
+                newGifCard.appendChild(newCardOver);
+                sectionFavoritos.appendChild(newGifCard);
+            }
+        } else {
+            for (let i = 0; i < limit; i++) {
+                let gifElement = likeGifs[i];
+                let title = document.createElement("h3");
+                let user = document.createElement("h4");
+                let contenedorTitulos = document.createElement("div");
+                contenedorTitulos.classList.add("datos-gif");
+                let newGifCard = document.createElement("div");
+                let newCardOver = document.createElement("div");
+                let contenedorButtons = document.createElement("div");
+                contenedorButtons.classList.add("contenedor-botones");
+                gifId = gifElement.id;
+                contenedorButtons.innerHTML = `<button class="btn-fav-active" value="${gifElement.id}" onclick="eliminarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-active.svg"></button>
             <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
             <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
-            newCardOver.classList.add("card-mouseover");
-            newGifCard.classList.add("gif-card");
-            let imgGif = document.createElement("img");
-            imgGif.classList.add("gif-img");
-            imgGif.src = gifElement.images.original.url;
-            imgGif.alt = gifElement.id;
-            newGifCard.appendChild(imgGif);
-            contenedorTitulos.appendChild(user);
-            contenedorTitulos.appendChild(title);
-            newCardOver.appendChild(contenedorButtons);
-            newCardOver.appendChild(contenedorTitulos);
-            user.innerHTML = gifElement.username;
-            title.innerHTML = gifElement.title;
-            newGifCard.appendChild(newCardOver);
-            sectionFavoritos.appendChild(newGifCard);
+                newCardOver.classList.add("card-mouseover");
+                newGifCard.classList.add("gif-card");
+                let imgGif = document.createElement("img");
+                imgGif.classList.add("gif-img");
+                imgGif.src = gifElement.images.original.url;
+                imgGif.alt = gifElement.id;
+                newGifCard.appendChild(imgGif);
+                contenedorTitulos.appendChild(user);
+                contenedorTitulos.appendChild(title);
+                newCardOver.appendChild(contenedorButtons);
+                newCardOver.appendChild(contenedorTitulos);
+                user.innerHTML = gifElement.username;
+                title.innerHTML = gifElement.title;
+                newGifCard.appendChild(newCardOver);
+                sectionFavoritos.appendChild(newGifCard);
+            }
         }
-        if (likeGifs.length == limit) {
+        if (likeGifs.length > limit) {
             sectionFavoritos.appendChild(btnVerMas);
         }
         console.log(sectionFavoritos);
     }
 }
 
+btnVerMas.addEventListener("click", mostrarMasFavoritos);
+
+function mostrarMasFavoritos() {
+    debugger;
+    limit = limit + limit;
+    sectionFavoritos.innerHTML = "";
+    muestraFavoritos(dataFavoritos);
+}
+
 function displayNoFavoritos() {
-    favoritosEmpty.classList.add("activo")
+    favoritosEmpty.classList.add("activo");
 }
 
 function locateGif(gifId) {
@@ -175,7 +222,8 @@ closePopUp.addEventListener("click", () => {
 
 like.addEventListener("click", function (e) {
     e.preventDefault();
-    actualizarFavoritos(e.target.alt);
+    let gifId = imgGiphy.alt;
+    eliminarFavoritos(gifId);
 });
 
 function actualizarFavoritos(gifId) {
@@ -189,6 +237,8 @@ function actualizarFavoritos(gifId) {
     likesFavoritos.push(gifId);//Pusheamos el nuevo ID
     favoritosTexto = JSON.stringify(likesFavoritos);//Pasamos a texto los datos del array actualizado
     localStorage.setItem("listafavoritosGifos", favoritosTexto);//Grabamos en localStorage los id de los gifs favoritos
+    sectionFavoritos.innerHTML = "";
+    getFavoritos();
 }
 
 download.addEventListener("click", function (e) {
@@ -203,6 +253,7 @@ async function downloadGif(gifUrl) {
 }
 
 function eliminarFavoritos(gifId) {
+    debugger;
     let listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
     listadoFavoritos = JSON.parse(listadoFavoritosTexto);
     console.log(listadoFavoritos);
