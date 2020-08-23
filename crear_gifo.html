@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/css/crear_gifo.css">
-    <title>Document</title>
+    <title>Crea tus GiFOS</title>
 </head>
 
 <body id="body" onresize="cambioDesktop()">
@@ -47,10 +47,14 @@
                 <div class="video-container">
                     <video id="video_gif" class="gif-recorder" src=""></video>
                     <div class="create-gifo-container">
-                        <div class="text-gifo-container">
+                        <div class="text-gifo-container active">
                             <h2>Aquí podrás crear tus propios <span>GIFOS</span></h2>
                             <p>¡Crea tu GIFO en sólo 3 pasos!</p>
                             <p>(sólo necesitas una cámara para grabar un video)</p>
+                        </div>
+                        <div class="text-gifo-container">
+                            <h2>¿Nos das acceso a tu cámara?</h2>
+                            <p>El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
                         </div>
                     </div>
                 </div>
@@ -58,6 +62,8 @@
                     <h4 class="button-number">1</h4>
                     <h4 class="button-number">2</h4>
                     <h4 class="button-number">3</h4>
+                    <h4 id="timer"></h4>
+                    <a id="repeatGif" href="#">REPETIR CAPTURA</a>
                 </div>
                 <div class="bottom-bar"></div>
             </div>

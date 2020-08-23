@@ -428,12 +428,21 @@ footer .footer-container p {
 }
 
 .display-section .number-container .video-container .create-gifo-container .text-gifo-container {
+  display: none;
   height: 100%;
-  margin-top: 8em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .display-section .number-container .video-container .create-gifo-container .text-gifo-container h2 {
-  margin: auto;
   width: 85%;
   font-family: "Montserrat", sans-serif;
   color: #572EE5;
@@ -452,7 +461,12 @@ footer .footer-container p {
   font-size: 16px;
   text-align: center;
   line-height: 29px;
-  margin: auto;
+}
+
+.display-section .number-container .video-container .create-gifo-container .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .display-section .number-container .video-container .no-visible {
@@ -495,11 +509,48 @@ footer .footer-container p {
   color: #ffffff;
 }
 
+.display-section .number-container .icon-numbers #timer {
+  display: none;
+  font-family: "Roboto", sans-serif;
+  color: #572EE5;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  position: absolute;
+  right: 23em;
+}
+
+.display-section .number-container .icon-numbers #repeatGif {
+  display: none;
+  font-family: "Roboto", sans-serif;
+  color: #572EE5;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  position: absolute;
+  right: 23em;
+  text-decoration: none;
+}
+
+.display-section .number-container .icon-numbers #repeatGif:hover {
+  border-bottom: 3px solid #50E3C2;
+}
+
+.display-section .number-container .icon-numbers #repeatGif:active {
+  color: #9CAFC3;
+  border: none;
+}
+
 .display-section .number-container .bottom-bar {
   margin: 2em;
   height: 7px;
-  width: 100%;
-  max-width: 796px;
+  width: 130%;
   background-color: #572EE5;
   display: block;
   border-radius: 7px;
@@ -509,9 +560,9 @@ footer .footer-container p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
