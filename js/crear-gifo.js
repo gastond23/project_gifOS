@@ -25,6 +25,7 @@ let checkUploadOverlay = document.getElementsByClassName("checkload-overlay");
 let cinta1 = document.getElementById("cinta-animada1");
 let cinta2 = document.getElementById("cinta-animada2");
 let luzCamara = document.getElementById("luz-animada");
+let listadoMisGifos;
 
 async function activateCamera() {
     debugger;
@@ -69,13 +70,13 @@ async function recGif() {
     timer.style.display = "block";
     buttonRec.style.display = "none";
     buttonEnd.style.display = "block";
+    recorder.startRecording();
+    console.log("Record Ini");
     comienzo = new Date().getTime();
     (function looper() {
         timer.innerText = calculoDuraciónTiempo((new Date().getTime() - comienzo) / 1000);
         setTimeout(looper, 1000);
     })();
-    recorder.startRecording();
-    console.log("Record Ini");
 }
 
 async function stopRec() {
@@ -117,7 +118,15 @@ async function uploadGif() {
         .then(obj => {
             loadOverlay[0].style.display = "none";
             checkUploadOverlay[0].style.display = "flex";
-            localStorage.setItem("misGIFOS", obj.data.id);
+            let misGifosTexto = localStorage.getItem("misGIFOS");
+            if (misGifosTexto == null || misGifosTexto == "[]") {
+                listadoMisGifos = [];
+            } else {
+                listadoMisGifos = JSON.parse(misGifosTexto);
+            }
+            listadoMisGifos.push(obj.data.id);
+            misGifosTexto = JSON.stringify(listadoMisGifos);
+            localStorage.setItem("misGIFOS", misGifosTexto);
             console.log(localStorage.getItem("misGIFOS"));
         })
         .catch(err => console.log(err));
@@ -138,7 +147,8 @@ function calculoDuraciónTiempo(seg) {
 
 function repetirCaptura() {
     debugger;
-    form.delete("file");
+    form = new FormData();
+    console.log(form.get('file'));
     buttonUp.style.display = "none";
     repeatGif.style.display = "none";
     pasos[2].classList.remove("button-act");
