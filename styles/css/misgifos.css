@@ -616,3 +616,207 @@ footer .footer-container p {
 .activo {
   display: block;
 }
+
+/** OVERLAY POPUP **/
+main .overlay {
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  width: 100%;
+  z-index: 100;
+}
+
+main .overlay .popup {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .overlay .popup .close-popup {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+  opacity: 0.5;
+  margin-right: 15px;
+}
+
+main .overlay .popup .close-popup:hover {
+  opacity: 1;
+}
+
+main .overlay .gif-maximized {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+main .overlay .gif-maximized img {
+  width: 318px;
+  height: 245px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .overlay .gif-maximized .inline-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 1em;
+}
+
+main .overlay .gif-maximized .inline-description .text-container {
+  width: 100%;
+}
+
+main .overlay .gif-maximized .inline-description .text-container h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #000000;
+}
+
+main .overlay .gif-maximized .inline-description .text-container h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  margin: 10px;
+  border: 1px solid #9cafc3;
+  border-radius: 6px;
+  opacity: 0.5;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a img {
+  height: auto;
+  width: auto;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a:hover {
+  opacity: 1;
+}
+
+main .overlay .gif-maximized .inline-description .icon-giphy-container a:active {
+  border: none;
+}
+
+main .overlay .gif-maximized .botones {
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #ffffff;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #572EE5;
+  cursor: pointer;
+  color: #572EE5;
+  top: 45vh;
+  text-align: center;
+  line-height: 35px;
+  -webkit-transition: 0.5s ease color;
+  transition: 0.5s ease color;
+}
+
+main .overlay .gif-maximized .botones:hover {
+  background-color: #572EE5;
+  color: #ffffff;
+}
+
+main .overlay .gif-maximized .adelante {
+  right: 5%;
+}
+
+main .overlay .gif-maximized .atras {
+  left: 5%;
+}
+
+main .overlay.active {
+  visibility: visible;
+}
+
+@media (min-width: 600px) {
+  main .overlay .popup .close-popup {
+    margin-right: 0;
+  }
+  main .overlay .gif-maximized .botones {
+    display: block;
+  }
+  main .overlay .gif-maximized img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 750px) {
+  main .overlay .gif-maximized {
+    max-width: 725px;
+  }
+}

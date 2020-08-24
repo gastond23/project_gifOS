@@ -31,20 +31,32 @@
         <section class="display-section">
             <div class="camera-container">
                 <div class="cintas-container">
-                    <img src="assets/element_cinta1.svg" alt="Cinta 1">
-                    <img src="assets/element_cinta2.svg" alt="Cinta 2">
+                    <img id="cinta-animada1" src="assets/element_cinta1.svg" alt="Cinta 1">
+                    <img id="cinta-animada2" src="assets/element_cinta2.svg" alt="Cinta 2">
                 </div>
                 <div class="camara-luz-container">
                     <div class="camera">
                         <img src="assets/element-camara.svg" alt="Camara">
                     </div>
                     <div class="luz">
-                        <img src="assets/element-luz-camara.svg" alt="Luz">
+                        <img id="luz-animada" src="assets/element-luz-camara.svg" alt="Luz">
                     </div>
                 </div>
             </div>
             <div class="number-container">
                 <div class="video-container">
+                    <div class="load-overlay">
+                        <img src="assets/loader.svg" alt="Loader">
+                        <h3>Estamos subiendo tu GIFO</h3>
+                    </div>
+                    <div class="checkload-overlay">
+                        <div class="btn-load-container">
+                            <button><img src="assets/icon-download.svg" alt="Download"></button>
+                            <button><img src="assets/icon-link.svg" alt="Link"></button>
+                        </div>
+                        <img src="assets/check.svg" alt="Check">
+                        <h3>GIFO subido con exito</h3>
+                    </div>
                     <video id="video_gif" class="gif-recorder" src=""></video>
                     <div class="create-gifo-container">
                         <div class="text-gifo-container active">
@@ -63,7 +75,7 @@
                     <h4 class="button-number">2</h4>
                     <h4 class="button-number">3</h4>
                     <h4 id="timer"></h4>
-                    <a id="repeatGif" href="#">REPETIR CAPTURA</a>
+                    <h4 id="repeatGif">REPETIR CAPTURA</h4>
                 </div>
                 <div class="bottom-bar"></div>
             </div>

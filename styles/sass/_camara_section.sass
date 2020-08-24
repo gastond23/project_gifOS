@@ -21,6 +21,10 @@
             position: absolute
             margin-top: -15em
             margin-left: -6em
+            .cinta-animada1
+                animation: rotation 2s infinite linear
+            .cinta-animada2
+                animation: reverse-rotation 2s infinite linear
         .camara-luz-container
             width: 100%
             display: flex
@@ -32,6 +36,8 @@
                 align-self: flex-start
                 img
                     margin-top: -1.5em
+                .luz-animada
+                    animation: opacity-animation 0.1s infinite linear
     .number-container
         grid-column-start: 2
         grid-column-end: 3
@@ -48,6 +54,60 @@
             width: 688px
             height: 390px
             border: 1px solid $color-principal
+            .load-overlay
+                display: none
+                height: 320px
+                width: 480px
+                background: rgba($color-principal, 0.6)
+                flex-direction: column
+                align-content: center
+                justify-content: center
+                position: absolute
+                z-index: 100
+                img
+                    animation: rotation 2s infinite linear
+                h3
+                    text-align: center
+                    font-family: $font-alterna
+                    color: #ffffff
+                    font-size: 15px
+                    font-weight: bold
+            .checkload-overlay
+                display: none
+                height: 320px
+                width: 480px
+                background: rgba($color-principal, 0.6)
+                flex-direction: column
+                align-content: center
+                justify-content: center
+                position: absolute
+                z-index: 100
+                .btn-load-container
+                    display: flex
+                    justify-content: flex-end
+                    align-items: center
+                    margin-top: 1em
+                    margin-right: 1em
+                    position: absolute
+                    top: 0
+                    right: 0
+                    button
+                        height: 32px
+                        width: 32px
+                        border-radius: 6px
+                        opacity: 0.7
+                        border: none
+                        margin: 5px
+                        cursor: pointer
+                        transition: 0.5s ease opacity
+                    button:hover
+                        opacity: 1
+                h3
+                    text-align: center
+                    font-family: $font-alterna
+                    color: #ffffff
+                    font-size: 15px
+                    font-weight: bold
             .gif.recorder
                 box-sizing: border-box
                 display: block
@@ -141,6 +201,7 @@
                 position: absolute
                 right: 23em
                 text-decoration: none
+                cursor: pointer
             #repeatGif:hover
                 border-bottom: 3px solid $color-secundario
             #repeatGif:active
@@ -193,3 +254,21 @@
         display: none
     #gif-upload
         display: none
+
+@keyframes rotation
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(359deg)
+
+@keyframes reverse-rotation
+    0%
+        transform: rotate(359deg)
+    100%
+        transform: rotate(0deg)
+
+@keyframes opacity-animation
+    0%
+        opacity: 1
+    100%
+        opacity: 0

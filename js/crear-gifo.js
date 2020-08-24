@@ -5,7 +5,6 @@ linkCrear.classList.add("disabled-crear")
 linkCrear.href = "#";
 
 //Comienzo script para el uso de la camara
-var constraints = { audio: false, video: { height: 320, width: 480 } };
 
 let buttonIni = document.getElementById("camera-iniciar");
 let buttonRec = document.getElementById("camera-grabar");
@@ -21,17 +20,26 @@ let mensajesCrearGifo = document.getElementsByClassName("text-gifo-container");
 let timer = document.getElementById("timer");
 let comienzo;
 let repeatGif = document.getElementById("repeatGif");
+let loadOverlay = document.getElementsByClassName("load-overlay");
+let checkUploadOverlay = document.getElementsByClassName("checkload-overlay");
+let cinta1 = document.getElementById("cinta-animada1");
+let cinta2 = document.getElementById("cinta-animada2");
+let luzCamara = document.getElementById("luz-animada");
 
-function activateCamera() {
+async function activateCamera() {
     debugger;
     mensajesCrearGifo[0].classList.remove("active");
     mensajesCrearGifo[1].classList.add("active");
+    cinta1.classList.add("cinta-animada1");
+    cinta2.classList.add("cinta-animada2");
+    luzCamara.classList.add("luz-animada");
     buttonIni.style.display = "none";
     buttonRec.style.display = "block";
     pasos[0].classList.add("button-act");
     createGifoContainer[0].classList.add("no-visible");
+    let constraints = { audio: false, video: { height: 320, width: 480 } };
     navigator.mediaDevices.getUserMedia(constraints)
-        .then(function (stream) {
+        .then(async function (stream) {
             recorder = RecordRTC(stream, {
                 type: 'gif',
                 frameRate: 1,
@@ -51,8 +59,9 @@ buttonIni.addEventListener("click", activateCamera);
 buttonRec.addEventListener("click", recGif);
 buttonEnd.addEventListener("click", stopRec);
 buttonUp.addEventListener("click", uploadGif);
+repeatGif.addEventListener("click", repetirCaptura);
 
-function recGif() {
+async function recGif() {
     debugger;
     timer.style.display = "none";
     pasos[0].classList.remove("button-act");
@@ -73,24 +82,31 @@ async function stopRec() {
     debugger;
     video.pause();
     buttonEnd.style.display = "none";
-    buttonUp.style.display = "block";
     pasos[1].classList.remove("button-act");
     pasos[2].classList.add("button-act");
+    cinta1.classList.remove("cinta-animada1");
+    cinta2.classList.remove("cinta-animada2");
+    luzCamara.classList.remove("luz-animada");
+    timer.style.display = "none";
     const sleep = m => new Promise(r => setTimeout(r, m));
     await sleep(3000);
     recorder.stopRecording(function () {
         let blob = recorder.getBlob();
         //invokeSaveAsDialog(blob);
-        form.append('file', blob, "migGIFO.gif");
+        form.append('file', blob, "miGIFO.gif");
         form.append('api_key', apiKey);
     });
-    timer.style.display = "none";
-    repeatGif.style.display = "block";
     console.log(form.get('file'));
+
+    repeatGif.style.display = "block";
+    buttonUp.style.display = "block";
 }
 
 async function uploadGif() {
     debugger;
+    buttonUp.style.display = "none";
+    repeatGif.style.display = "none";
+    loadOverlay[0].style.display = "flex";
     fetch(`https://upload.giphy.com/v1/gifs`, {
         method: "POST",
         body: form
@@ -99,6 +115,8 @@ async function uploadGif() {
             return data.json();
         })
         .then(obj => {
+            loadOverlay[0].style.display = "none";
+            checkUploadOverlay[0].style.display = "flex";
             localStorage.setItem("misGIFOS", obj.data.id);
             console.log(localStorage.getItem("misGIFOS"));
         })
@@ -116,4 +134,17 @@ function calculoDuraciónTiempo(seg) {
         segundos = "0" + segundos;
     }
     return horas + ":" + minutos + ":" + segundos;
+}
+
+function repetirCaptura() {
+    debugger;
+    form.delete("file");
+    buttonUp.style.display = "none";
+    repeatGif.style.display = "none";
+    pasos[2].classList.remove("button-act");
+    cinta1.classList.add("cinta-animada1");
+    cinta2.classList.add("cinta-animada2");
+    luzCamara.classList.add("luz-animada");
+    video.play();
+    recGif();
 }
