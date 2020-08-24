@@ -117,7 +117,7 @@ function muestraMisGifos(data) {
                 user.innerHTML = gifElement.username;
                 title.innerHTML = gifElement.title;
                 newGifCard.appendChild(newCardOver);
-                sectionFavoritos.appendChild(newGifCard);
+                sectionMisGifos.appendChild(newGifCard);
             }
         }
         if (miGifos.length > limit) {

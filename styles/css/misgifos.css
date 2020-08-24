@@ -565,10 +565,19 @@ footer .footer-container p {
 
 .galeria-misgifos .gif-card {
   margin: 0.5em;
-  height: 120px;
-  width: 156px;
+  height: 20vh;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .galeria-misgifos .gif-card .gif-img {
@@ -577,6 +586,114 @@ footer .footer-container p {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.galeria-misgifos .gif-card .card-mouseover {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: rgba(87, 46, 229, 0.6);
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin-left: -100%;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .contenedor-botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 5px;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .contenedor-botones button {
+  margin: 2px;
+  height: 32px;
+  width: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  opacity: 0.6;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .contenedor-botones button img {
+  margin: auto;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .contenedor-botones button:hover {
+  opacity: 1;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .contenedor-botones .btn-fav-active {
+  opacity: 1;
+  background-color: #ffffff;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .datos-gif {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .datos-gif h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  z-index: -1;
+}
+
+.galeria-misgifos .gif-card .card-mouseover .datos-gif h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  z-index: -1;
+}
+
+.galeria-misgifos .btn-vermas {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #572EE5;
+  letter-spacing: 0;
+  text-align: center;
+  background-color: #ffffff;
+  height: 50px;
+  width: 127px;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 3em;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+.galeria-misgifos .btn-vermas:focus {
+  outline: none;
+  outline-width: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.galeria-misgifos .btn-vermas:hover {
+  background-color: #572EE5;
+  color: #ffffff;
 }
 
 .sin-misgifos {
@@ -615,6 +732,19 @@ footer .footer-container p {
 
 .activo {
   display: block;
+}
+
+@media (min-width: 600px) {
+  .galeria-misgifos {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .galeria-misgifos .btn-vermas {
+    grid-column-end: 5;
+  }
+  .galeria-misgifos .gif-card:hover .card-mouseover {
+    z-index: 1;
+  }
 }
 
 /** OVERLAY POPUP **/

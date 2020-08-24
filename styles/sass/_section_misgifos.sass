@@ -21,15 +21,88 @@
     padding-bottom: 1em
     .gif-card
         margin: 0.5em
-        height: 120px
-        width: 156px
+        height: 20vh
+        width: 80%
         margin-left: auto
         margin-right: auto
+        display: flex
+        align-items: center
+        justify-content: center
         .gif-img
             display: block
             height: 100%
             width: 100%
             object-fit: cover
+        .card-mouseover
+            position: relative
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            background: rgba(87,46,229,0.60)
+            z-index: -1
+            height: 100%
+            width: 100%
+            margin-left: -100%
+            .contenedor-botones
+                display: flex
+                justify-content: flex-end
+                margin: 5px
+                button
+                    margin: 2px
+                    height: 32px
+                    width: 32px
+                    border-radius: 6px
+                    cursor: pointer
+                    border: none
+                    opacity: 0.6
+                    img
+                        margin: auto
+                button:hover
+                    opacity: 1
+                .btn-fav-active
+                    opacity: 1
+                    background-color: #ffffff
+            .datos-gif
+                margin-left: 5px
+                margin-bottom: 5px
+                h4
+                    font-family: $font-principal
+                    font-size: 15px
+                    color: #ffffff
+                    z-index: -1
+                h3
+                    font-family: $font-principal
+                    font-size: 16px
+                    font-weight: bold
+                    color: #ffffff
+                    z-index: -1
+    .btn-vermas
+        grid-column-start: 1
+        grid-column-end: 3
+        font-family: $font-alterna
+        font-size: 13px
+        color: $color-principal
+        letter-spacing: 0
+        text-align: center
+        background-color: #ffffff
+        height: 50px
+        width: 127px
+        border: 1px solid $color-principal
+        border-radius: 25px
+        border-radius: 25px
+        cursor: pointer
+        margin-top: 3em
+        margin-bottom: 2em
+        margin-left: auto
+        margin-right: auto
+        transition: 0.5s ease all
+    .btn-vermas:focus
+        outline: none
+        outline-width: 0
+        box-shadow: none
+    .btn-vermas:hover
+        background-color: $color-principal
+        color: #ffffff
 .sin-misgifos
     display: none
     width: 100%
@@ -51,3 +124,12 @@
             font-weight: bolder
 .activo
     display: block
+
+@media (min-width: 600px)
+    .galeria-misgifos
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        .btn-vermas
+            grid-column-end: 5
+        .gif-card:hover
+            .card-mouseover
+                z-index: 1
