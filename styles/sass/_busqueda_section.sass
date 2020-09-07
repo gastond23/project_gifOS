@@ -20,6 +20,8 @@
         line-height: 30px
         border-top: 1px solid rgba(156, 175, 195, 0.5)
         padding-top: 2em
+        body.dark &
+            color: #ffffff
     .gif-card
         margin: 0.5em
         height: 20vh
@@ -94,6 +96,10 @@
         margin-left: auto
         margin-right: auto
         transition: 0.5s ease all
+        body.dark &
+            background-color: $fondo-dark-claro
+            border: 1px solid #ffffff
+            color: #ffffff
     .btn-vermas:focus
         outline: none
         outline-width: 0
@@ -101,6 +107,10 @@
     .btn-vermas:hover
         background-color: $color-principal
         color: #ffffff
+        body.dark &
+            background-color: #ffffff
+            border: 1px solid $color-principal
+            color: $color-principal
 .sin-resultados
     width: 100%
     height: 55vh

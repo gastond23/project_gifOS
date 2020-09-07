@@ -879,6 +879,10 @@ body.dark .busqueda-section {
   padding-top: 2em;
 }
 
+body.dark .busqueda-section .title-search {
+  color: #ffffff;
+}
+
 .busqueda-section .gif-card {
   margin: 0.5em;
   height: 20vh;
@@ -995,6 +999,12 @@ body.dark .busqueda-section {
   transition: 0.5s ease all;
 }
 
+body.dark .busqueda-section .btn-vermas {
+  background-color: #37383C;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
 .busqueda-section .btn-vermas:focus {
   outline: none;
   outline-width: 0;
@@ -1005,6 +1015,12 @@ body.dark .busqueda-section {
 .busqueda-section .btn-vermas:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+body.dark .busqueda-section .btn-vermas:hover {
+  background-color: #ffffff;
+  border: 1px solid #572EE5;
+  color: #572EE5;
 }
 
 .sin-resultados {
@@ -1099,6 +1115,10 @@ main .overlay {
   z-index: 100;
 }
 
+body.dark main .overlay {
+  background: rgba(34, 35, 38, 0.9);
+}
+
 main .overlay .popup {
   background: none;
   display: -webkit-box;
@@ -1123,8 +1143,18 @@ main .overlay .popup .close-popup {
   margin-right: 15px;
 }
 
+body.dark main .overlay .popup .close-popup {
+  padding: 0.5em;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+}
+
 main .overlay .popup .close-popup:hover {
   opacity: 1;
+}
+
+body.dark main .overlay .popup .close-popup:hover {
+  background-color: #ffffff;
 }
 
 main .overlay .gif-maximized {
@@ -1170,11 +1200,19 @@ main .overlay .gif-maximized .inline-description .text-container h3 {
   color: #000000;
 }
 
+body.dark main .overlay .gif-maximized .inline-description .text-container h3 {
+  color: #ffffff;
+}
+
 main .overlay .gif-maximized .inline-description .text-container h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #000000;
   font-weight: bold;
+}
+
+body.dark main .overlay .gif-maximized .inline-description .text-container h2 {
+  color: #ffffff;
 }
 
 main .overlay .gif-maximized .inline-description .icon-giphy-container {
@@ -1219,6 +1257,10 @@ main .overlay .gif-maximized .inline-description .icon-giphy-container a:hover {
   opacity: 1;
 }
 
+body.dark main .overlay .gif-maximized .inline-description .icon-giphy-container a:hover {
+  background-color: #ffffff;
+}
+
 main .overlay .gif-maximized .inline-description .icon-giphy-container a:active {
   border: none;
 }
@@ -1245,9 +1287,21 @@ main .overlay .gif-maximized .botones {
   transition: 0.5s ease color;
 }
 
+body.dark main .overlay .gif-maximized .botones {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: #222326;
+}
+
 main .overlay .gif-maximized .botones:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+body.dark main .overlay .gif-maximized .botones:hover {
+  background-color: #ffffff;
+  color: #572EE5;
+  border: 1px solid #572EE5;
 }
 
 main .overlay .gif-maximized .adelante {

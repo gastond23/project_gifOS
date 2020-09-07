@@ -12,6 +12,8 @@
         text-align: center
         color: $color-principal
         padding: 1em
+        body.dark &
+            color: #ffffff
 .galeria-misgifos
     width: 100%
     background-color: #ffffff
@@ -98,6 +100,10 @@
         margin-left: auto
         margin-right: auto
         transition: 0.5s ease all
+        body.dark &
+            background-color: $fondo-dark-claro
+            border: 1px solid #ffffff
+            color: #ffffff
     .btn-vermas:focus
         outline: none
         outline-width: 0
@@ -105,6 +111,10 @@
     .btn-vermas:hover
         background-color: $color-principal
         color: #ffffff
+        body.dark &
+            background-color: #ffffff
+            border: 1px solid $color-principal
+            color: $color-principal
 .sin-misgifos
     display: none
     width: 100%

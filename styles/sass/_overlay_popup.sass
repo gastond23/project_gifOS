@@ -12,6 +12,8 @@ main
         visibility: hidden
         width: 100%
         z-index: 100
+        body.dark &
+            background: rgba($fondo-dark-oscuro , 0.90)
         .popup
             background: none
             display: flex
@@ -24,8 +26,14 @@ main
                 width: auto
                 opacity: 0.5
                 margin-right: 15px
+                body.dark &
+                    padding: 0.5em
+                    border: 1px solid #ffffff
+                    border-radius: 6px
             .close-popup:hover
                 opacity: 1
+                body.dark &
+                    background-color: #ffffff
         .gif-maximized
             display: flex
             justify-content: flex-end
@@ -47,11 +55,15 @@ main
                         font-family: $font-principal
                         font-size: 15px
                         color: #000000
+                        body.dark &
+                            color: #ffffff
                     h2
                         font-family: $font-alterna
                         font-size: 16px
                         color: #000000
                         font-weight: bold
+                        body.dark &
+                            color: #ffffff
                 .icon-giphy-container
                     display: flex
                     justify-content: stretch
@@ -73,6 +85,8 @@ main
                             width: auto
                     a:hover
                         opacity: 1
+                        body.dark &
+                            background-color: #ffffff
                     a:active
                         border: none
             .botones
@@ -92,9 +106,17 @@ main
                 text-align: center
                 line-height: 35px
                 transition: 0.5s ease color
+                body.dark &
+                    border: 1px solid #ffffff
+                    color: #ffffff
+                    background-color: $fondo-dark-oscuro
             .botones:hover
                 background-color: $color-principal
                 color: #ffffff
+                body.dark &
+                    background-color: #ffffff
+                    color: $color-principal
+                    border: 1px solid $color-principal
             .adelante
                 right: 5%
             .atras
