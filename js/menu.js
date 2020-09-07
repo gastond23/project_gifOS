@@ -45,7 +45,7 @@ function cambioDesktop() {
         }
     } else {
         homeLogo.src = "assets/logo-mobile.svg";
-        if (menuDesktop.innerHTML.length > 407) {
+        if (menuDesktop.innerHTML.length > 408) {
             nuevoLi.removeChild(nuevoLink);
             menuDesktop.removeChild(nuevoLi);
         }

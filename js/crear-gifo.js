@@ -146,15 +146,13 @@ function calculoDuraciónTiempo(seg) {
 }
 
 function repetirCaptura() {
-    debugger;
-    form = new FormData();
-    console.log(form.get('file'));
+    form.delete('file');
     buttonUp.style.display = "none";
     repeatGif.style.display = "none";
     pasos[2].classList.remove("button-act");
     cinta1.classList.add("cinta-animada1");
     cinta2.classList.add("cinta-animada2");
     luzCamara.classList.add("luz-animada");
-    video.play();
     recGif();
+    video.play();
 }

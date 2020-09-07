@@ -150,7 +150,15 @@ nav label {
   }
   .menu li .item-crear-gifo {
     text-decoration: none;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 54px;
     width: 54px;
     border: 1px solid #572EE5;
@@ -158,12 +166,12 @@ nav label {
     margin-top: -10px;
     margin-right: 10px;
     text-align: center;
-    line-height: 54px;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 300;
+    line-height: 38px;
     color: #572EE5;
-    -webkit-transition: 0.5s ease all;
-    transition: 0.5s ease all;
+    -webkit-transition: 0.5s ease color;
+    transition: 0.5s ease color;
   }
   .menu li .item-crear-gifo:hover {
     background-color: #572EE5;

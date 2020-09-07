@@ -253,10 +253,8 @@ async function downloadGif(gifUrl) {
 }
 
 function eliminarFavoritos(gifId) {
-    debugger;
     let listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
     listadoFavoritos = JSON.parse(listadoFavoritosTexto);
-    console.log(listadoFavoritos);
     let gifToDelete = gifId;
     let idPosition;
     for (let i = 0; i < listadoFavoritos.length; i++) {

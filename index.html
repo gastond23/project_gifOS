@@ -11,7 +11,7 @@
 <body id="body" onresize="cambioDesktop()">
     <header>
         <div class="bar"></div>
-        <nav>
+        <nav class="navbar">
             <a class="link-home" href="index.html">
                 <img id="home_logo" class="logo" src="#" alt="Logo GIFOS">
             </a>
@@ -19,7 +19,7 @@
                 <img id="menu_ham" class="menu-burguer" src="assets/burger.svg" alt="Menú hamburguesa">
             </label>
             <ul id="menu" class="menu">
-                <li><a class="item-menu" id="modo_nocturno" href="">Modo Nocturno</a></li>
+                <li><a class="item-menu" id="modo_nocturno" href="#">Modo Nocturno</a></li>
                 <li class="span-li"><span></span></li>
                 <li><a class="item-menu" id="favoritos" href="favoritos.html">Favoritos</a></li>
                 <li class="span-li"><span></span></li>
@@ -27,7 +27,7 @@
             </ul>
         </nav>
         <section class="titulos-header">
-            <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+            <h1 id="texto-header">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
             <img class="ilustra_header" src="assets/ilustra_header.svg" alt="Family GIFOS">
             <div class="buscador-container" id="search_form">
                 <div class="contenedor-search">
@@ -104,6 +104,7 @@
         <div class="bar"></div>
     </footer>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="js/darkmode-app.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/copyright-date.js"></script>

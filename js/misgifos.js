@@ -25,7 +25,6 @@ function displaySinMisGifos() {
 }
 
 function getMisGifos() {
-    debugger;
     misGifosEmpty.classList.remove("activo");
     const listadoGifosTexto = localStorage.getItem("misGIFOS");
     if (listadoGifosTexto == '[]' || listadoGifosTexto == null) {
@@ -69,7 +68,7 @@ function muestraMisGifos(data) {
                 let contenedorButtons = document.createElement("div");
                 contenedorButtons.classList.add("contenedor-botones");
                 gifId = gifElement.id;
-                contenedorButtons.innerHTML = `<button class="btn-fav-active" value="${gifElement.id}" onclick="eliminarFavoritos('${gifElement.id}')"><img class="botones-overlay" src="assets/icon-fav-active.svg"></button>
+                contenedorButtons.innerHTML = `<button class="btn-delete-active" value="${gifElement.id}" onclick="eliminarMiGifo('${gifElement.id}')"><img class="botones-overlay" src="assets/icon_trash.svg"></button>
                 <button value="${gifElement.id}" onclick="downloadGif('${gifElement.images.original.url}')"><img class="botones-overlay" src="assets/icon-download.svg"></button>
                 <button value="${gifElement.id}" onclick="locateGif('${gifId}')"><img class="botones-overlay" src="assets/icon-max.svg"></button>`;
                 newCardOver.classList.add("card-mouseover");
@@ -133,4 +132,21 @@ function mostrarMasMisGifos() {
     limit = limit + limit;
     sectionMisGifos.innerHTML = "";
     muestraMisGifos(dataMisGifos);
+}
+
+function eliminarMiGifo(id) {
+    let listadoGifosTexto = localStorage.getItem("misGIFOS");
+    listadoMisGifos = JSON.parse(listadoGifosTexto);
+    let gifDelete = id;
+    let idPosition;
+    for (let i = 0; i < listadoMisGifos; i++) {
+        if (gifDelete == listadoMisGifos[i]) {
+            idPosition = i;
+        }
+    }
+    listadoMisGifos.splice(idPosition, 1);
+    listadoGifosTexto = JSON.stringify(listadoMisGifos);
+    localStorage.setItem("misGIFOS", listadoGifosTexto);
+    sectionMisGifos.innerHTML = "";
+    getMisGifos();
 }
