@@ -40,7 +40,11 @@ let nuevoLink = document.createElement("a");
 
 function cambioDesktop() {
     if (window.matchMedia("(min-width: 650px)").matches) {
-        homeLogo.src = "assets/logo-desktop.svg";
+        if (modeStatus == "true") {
+            homeLogo.src = "assets/logo-desktop-modo-noc.svg";
+        } else {
+            homeLogo.src = "assets/logo-desktop.svg";
+        }
         nuevoLink.classList.add("item-crear-gifo");
         nuevoLink.href = "crear_gifo.html";
         nuevoLink.id = "crear_gifo";
@@ -54,7 +58,11 @@ function cambioDesktop() {
             linksMenu[i].innerText = textMayus;
         }
     } else {
-        homeLogo.src = "assets/logo-mobile.svg";
+        if (modeStatus == "true") {
+            homeLogo.src = "assets/logo-mobile-modo-noc.svg";
+        } else {
+            homeLogo.src = "assets/logo-mobile.svg";
+        }
         if (menuDesktop.innerHTML.length > 408) {
             nuevoLi.removeChild(nuevoLink);
             menuDesktop.removeChild(nuevoLi);

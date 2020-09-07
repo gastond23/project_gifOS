@@ -60,7 +60,11 @@ function busqueda() {
 //Esta funcion obtiene los valores buscados en GIPHY y los muestra en el DOM, agregando los <li> en el <ul> del buscador
 function getData(data) {
     if (search.value != null) {
-        imgLupa.src = "assets/close.svg";
+        if (modeStatus == "true") {
+            imgLupa.src = "assets/button-close-dark.svg";
+        } else {
+            imgLupa.src = "assets/close.svg";
+        }
         listadoSearch.classList.add("menu-activo");
         lupaOculta.classList.add("lupavisible");
         let datoBusqueda = data.data;
@@ -72,7 +76,11 @@ function getData(data) {
         listadoSearch.innerHTML = "";
         lupaOculta.classList.remove("lupavisible");
         listadoSearch.classList.remove("menu-activo");
-        imgLupa.src = "assets/icon-search.svg";
+        if (modeStatus == "true") {
+            imgLupa.src = "assets/icon-search-mod-noc.svg";
+        } else {
+            imgLupa.src = "assets/icon-search.svg";
+        }
     }
 }
 
@@ -81,7 +89,11 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
     lupaOculta.classList.remove("lupavisible");
     search.value = e.target.textContent;
     buscando = search.value;
-    imgLupa.src = "assets/icon-search.svg";
+    if (modeStatus == "true") {
+        imgLupa.src = "assets/icon-search-mod-noc.svg";
+    } else {
+        imgLupa.src = "assets/icon-search.svg";
+    }
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
     estadoLupa = true;
@@ -104,7 +116,11 @@ document.getElementById("lupa").addEventListener("click", () => {
         listadoSearch.innerHTML = "";
         lupaOculta.classList.remove("lupavisible");
         listadoSearch.classList.remove("menu-activo");
-        imgLupa.src = "assets/icon-search.svg";
+        if (modeStatus == "true") {
+            imgLupa.src = "assets/icon-search-mod-noc.svg";
+        } else {
+            imgLupa.src = "assets/icon-search.svg";
+        }
         estadoLupa = true;
     }
 });

@@ -110,9 +110,17 @@ main
                 line-height: 35px
                 transition: 0.5s ease all
                 z-index: 90
+                body.dark &
+                    background-color: $fondo-dark-oscuro
+                    color: #ffffff
+                    border: 1px solid #ffffff
             .botones:hover
                 background-color: $color-principal
                 color: #ffffff
+                body.dark &
+                    background-color: #ffffff
+                    color: $color-principal
+                    border: 1px solid $color-principal
             .adelante
                 right: 1em
             .atras

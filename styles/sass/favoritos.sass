@@ -5,7 +5,8 @@ $font-principal: 'Roboto', sans-serif
 $font-alterna: 'Montserrat', sans-serif
 $color-principal: #572EE5
 $color-secundario: #50E3C2 
-
+$fondo-dark-claro: #37383C
+$fondo-dark-oscuro: #222326
 *
     margin: 0
     padding: 0
@@ -33,3 +34,8 @@ $color-secundario: #50E3C2
 /** OVERLAY POPUP **/
 
 @import "_overlay_popup.sass"
+
+body
+    transition: 0.3s ease all
+    &.dark
+        background-color: $fondo-dark-claro
