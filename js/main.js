@@ -23,6 +23,7 @@ let likesFavoritos = [];
 let listaTrending = document.getElementById("trendings_sug");
 let count = 0;
 let estadoLupa = true;
+let sinResultados = document.getElementById("busqueda_error");
 
 
 //Declaracion de variables para funcionamiento del buscador
@@ -139,6 +140,7 @@ function muestraBusqueda(data) {
     imgLupa.src = "assets/icon-search.svg";
     search.value = "";
     valorBusqueda = data.data;
+    sinResultados.classList.remove("activo");
     if (valorBusqueda.length == 0) {
         displayBusquedaError();
     } else {
@@ -264,22 +266,7 @@ listaTrending.addEventListener("click", function (e) {
 
 
 function displayBusquedaError() {
-    sectorBusqueda.innerHTML = "";
-    let sinResultadosContainer = document.createElement("div");
-    sinResultadosContainer.classList.add("result-container");
-    let busquedaTitle = document.createElement("h2");
-    busquedaTitle.classList.add("title-search")
-    busquedaTitle.innerText = "Lorem Ipsum"
-    let imgResultadoBusqueda = document.createElement("img");
-    imgResultadoBusqueda.src = "assets/icon-busqueda-sin-resultado.svg";
-    let underTitleSearch = document.createElement("h3");
-    underTitleSearch.classList.add("under-title");
-    underTitleSearch.innerText = "Intenta con otra búsqueda.";
-    sinResultadosContainer.appendChild(busquedaTitle);
-    sinResultadosContainer.appendChild(imgResultadoBusqueda);
-    sinResultadosContainer.appendChild(underTitleSearch);
-    sectorBusqueda.classList.add("busqueda-section");
-    sectorBusqueda.appendChild(sinResultadosContainer);
+    sinResultados.classList.add("activo");
 }
 
 if (window.matchMedia("(max-width: 500px)").matches) {

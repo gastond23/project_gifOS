@@ -125,6 +125,9 @@ body.dark .menu {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  body.dark .menu {
+    background-color: #37383C;
+  }
   .menu li {
     width: auto;
   }
@@ -982,6 +985,55 @@ body.dark .busqueda-section {
 .busqueda-section .btn-vermas:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+.sin-resultados {
+  width: 100%;
+  height: 55vh;
+  background-color: #ffffff;
+  display: none;
+}
+
+.sin-resultados .busqueda-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sin-resultados .busqueda-empty h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  color: #572EE5;
+  line-height: 30px;
+  border-top: 1px solid rgba(156, 175, 195, 0.5);
+  padding-top: 2em;
+  text-align: center;
+}
+
+.sin-resultados .busqueda-empty p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  text-align: center;
+  line-height: 22px;
+  color: #50E3C2;
+  font-weight: bold;
+  padding-bottom: 2em;
+}
+
+.activo {
+  display: block;
 }
 
 @media (min-width: 600px) {

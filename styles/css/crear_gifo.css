@@ -132,6 +132,9 @@ nav label {
     width: auto;
     height: 24px;
   }
+  body.dark .menu li .item-menu {
+    color: #ffffff;
+  }
   .menu li .item-menu:hover {
     border-bottom: 3px solid #50E3C2;
   }
@@ -173,9 +176,17 @@ nav label {
     -webkit-transition: 0.5s ease color;
     transition: 0.5s ease color;
   }
+  body.dark .menu li .item-crear-gifo {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
   .menu li .item-crear-gifo:hover {
     background-color: #572EE5;
     color: #ffffff;
+  }
+  body.dark .menu li .item-crear-gifo:hover {
+    background-color: #ffffff;
+    color: #572EE5;
   }
   .menu li .item-crear-gifo:active {
     background-color: #9CAFC3;
