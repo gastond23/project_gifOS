@@ -97,6 +97,7 @@ document.getElementById("lista_search").addEventListener("click", function (e) {
     listadoSearch.innerHTML = "";
     listadoSearch.classList.remove("menu-activo");
     estadoLupa = true;
+    getBusquedaGiphy();
 })
 
 //Llamado de funcion desde un click en lupa o enter
