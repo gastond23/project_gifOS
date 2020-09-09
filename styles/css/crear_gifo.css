@@ -661,6 +661,11 @@ body.dark .display-section .number-container .video-container .create-gifo-conta
   margin-bottom: 2em;
 }
 
+body.dark .display-section .number-container .icon-numbers .button-number {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
 .display-section .number-container .icon-numbers .button-act {
   background-color: #572EE5;
   color: #ffffff;
@@ -680,6 +685,10 @@ body.dark .display-section .number-container .video-container .create-gifo-conta
   right: 23em;
 }
 
+body.dark .display-section .number-container .icon-numbers #timer {
+  color: #ffffff;
+}
+
 .display-section .number-container .icon-numbers #repeatGif {
   display: none;
   font-family: "Roboto", sans-serif;
@@ -694,6 +703,10 @@ body.dark .display-section .number-container .video-container .create-gifo-conta
   right: 23em;
   text-decoration: none;
   cursor: pointer;
+}
+
+body.dark .display-section .number-container .icon-numbers #repeatGif {
+  color: #ffffff;
 }
 
 .display-section .number-container .icon-numbers #repeatGif:hover {
@@ -769,9 +782,21 @@ body.dark .display-section .number-container .video-container .create-gifo-conta
   cursor: pointer;
 }
 
+body.dark .control-section button {
+  background-color: #37383C;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
 .control-section button:hover {
   background-color: #572EE5;
   color: #ffffff;
+}
+
+body.dark .control-section button:hover {
+  border: 1px solid #572EE5;
+  background-color: #ffffff;
+  color: #572EE5;
 }
 
 .control-section #camera-grabar {

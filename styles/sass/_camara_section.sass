@@ -184,6 +184,9 @@
                 line-height: 32px
                 margin-top: 3.5em
                 margin-bottom: 2em
+                body.dark &
+                    border: 1px solid #ffffff
+                    color: #ffffff
             .button-act
                 background-color: $color-principal
                 color: #ffffff
@@ -198,6 +201,8 @@
                 align-self: flex-end
                 position: absolute
                 right: 23em
+                body.dark &
+                    color: #ffffff
             #repeatGif
                 display: none
                 font-family: $font-principal
@@ -211,6 +216,8 @@
                 right: 23em
                 text-decoration: none
                 cursor: pointer
+                body.dark &
+                    color: #ffffff
             #repeatGif:hover
                 border-bottom: 3px solid $color-secundario
             #repeatGif:active
@@ -254,9 +261,17 @@
         font-weight: 600
         transition: 0.5s ease all
         cursor: pointer
+        body.dark &
+            background-color: $fondo-dark-claro
+            border: 1px solid #ffffff
+            color: #ffffff
     button:hover
         background-color: $color-principal
         color: #ffffff
+        body.dark &
+            border: 1px solid $color-principal
+            background-color: #ffffff
+            color: $color-principal
     #camera-grabar
         display: none
     #camera-finalizar

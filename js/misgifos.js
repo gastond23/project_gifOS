@@ -150,3 +150,75 @@ function eliminarMiGifo(id) {
     sectionMisGifos.innerHTML = "";
     getMisGifos();
 }
+
+function maximizarGif(data) {
+    gifId = "";
+    datosGiphyMax = data.data;
+    popUp.classList.add("active");
+    userName.innerText = datosGiphyMax.username;
+    giphyTitle.innerText = datosGiphyMax.title;
+    imgGiphy.alt = datosGiphyMax.id;
+    imgGiphy.src = datosGiphyMax.images.original.url;
+    download.download = datosGiphyMax.title;
+    download.href = datosGiphyMax.images.original.url;
+    document.getElementById("body").classList.add("no-scroll");
+}
+
+if (window.matchMedia("(max-width: 500px)").matches) {
+    sectionMisGifos.addEventListener("click", function (e) {
+        gifId = e.target.alt;
+        if (gifId != undefined) {
+            locateGif(gifId);
+        }
+    })
+}
+
+function locateGif(gifId) {
+    return fetch(`https://api.giphy.com/v1/gifs/${gifId}?api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            maximizarGif(data);
+        })
+        .catch(err => {
+            console.error('fetch failed', err);
+        })
+}
+
+function slideMaximizedGif(n) {
+    let gifList = document.getElementsByClassName("gif-img");
+    let position;
+    let idSearch = imgGiphy.alt;
+    for (let i = 0; i < gifList.length; i++) {
+        idSearch = gifList[i].alt;
+        if (idSearch == datosGiphyMax.id) {
+            position = i + n;
+        }
+    }
+    if (position === undefined) {
+        gifList = document.getElementsByClassName("img-gif-slider");
+        for (let i = 0; i < gifList.length; i++) {
+            idSearch = gifList[i].alt;
+            if (idSearch == datosGiphyMax.id) {
+                position = i + n;
+            }
+        }
+    }
+    if (position < 0) {
+        position = gifList.length + position;
+    }
+    if (position >= gifList.length) {
+        position = 0;
+    }
+    gifId = gifList[position].alt;
+    locateGif(gifId);
+}
+
+let closePopUp = document.getElementById("close_popup");
+closePopUp.addEventListener("click", () => {
+    datosGiphyMax = "";
+    popUp.classList.remove("active");
+    userName.innerText = "";
+    giphyTitle.innerText = "";
+    imgGiphy.src = "";
+    document.getElementById("body").classList.remove("no-scroll");
+})

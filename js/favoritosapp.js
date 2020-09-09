@@ -19,11 +19,13 @@ let like = document.getElementById("like_favoritos");
 let download = document.getElementById("gif_download");
 let dataFavoritos;
 
+
 getFavoritos();
 
 function getFavoritos() {
     favoritosEmpty.classList.remove("activo");
     const listadoFavoritosTexto = localStorage.getItem("listafavoritosGifos");
+    console.log(listadoFavoritosTexto);
     if (listadoFavoritosTexto == '[]' || listadoFavoritosTexto == null) {
         displayNoFavoritos();
     } else {
@@ -223,8 +225,10 @@ closePopUp.addEventListener("click", () => {
 like.addEventListener("click", function (e) {
     e.preventDefault();
     let gifId = imgGiphy.alt;
-    eliminarFavoritos(gifId);
+    actualizarFavoritos(gifId);
 });
+
+
 
 function actualizarFavoritos(gifId) {
     let favoritosTexto = localStorage.getItem("listafavoritosGifos");//Leo el localStorage si no hay gif favoritos
